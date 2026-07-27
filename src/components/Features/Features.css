@@ -1,0 +1,100 @@
+.features {
+  background: #fff;
+  padding: 28px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+
+  background:  #C89B3C ; /* ذهبي فاتح */
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-size: 24px;
+
+  /* box-shadow: 0 8px 20px rgba(215, 169, 60, 0.25); */
+  box-shadow: 0 10px 25px rgba(200, 155, 60, 0.35);
+
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .icon {
+  background: #D7A93C;
+  transform: scale(1.08);
+  /* box-shadow: 0 10px 25px rgba(200, 155, 60, 0.35); */
+  box-shadow: 0 8px 20px rgba(215, 169, 60, 0.25); 
+}
+
+.feature-card h4 {
+  font-size: 18px;
+  color: #222;
+  margin: 0 0 5px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover h4 {
+  color: #C89B3C;
+}
+
+.feature-card p {
+  color: #777;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feature-card {
+    justify-content: flex-start;
+  }
+
+  .icon {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+  }
+
+  .feature-card h4 {
+    font-size: 17px;
+  }
+
+  .feature-card p {
+    font-size: 13px;
+  }
+}
