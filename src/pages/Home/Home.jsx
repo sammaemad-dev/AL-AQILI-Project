@@ -1,5 +1,6 @@
 import Hero from "../../sections/Hero/Hero";
 import Features from "../../components/Features/Features";
+import Categories from "../../sections/Categories/Categories";
 import About from "../../pages/About/About";
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
     <>
       <Hero />
       <Features />
+       <Categories />
       <About />
     </>
   );
