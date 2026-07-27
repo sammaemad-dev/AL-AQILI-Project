@@ -1,0 +1,369 @@
+.reviews-page {
+  min-height: 100vh;
+  padding: 120px 8% 80px;
+  background: #f8f4ef;
+  color: #3b241c;
+}
+
+.reviews-small-title {
+  text-align: center;
+  color: #9b6b3f;
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.reviews-title {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 60px;
+  color: #3b241c;
+}
+
+/* ================= Reviews Grid ================= */
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  margin-bottom: 80px;
+}
+
+.review-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 35px;
+  text-align: center;
+  position: relative;
+  transition: .35s;
+  border: 1px solid #ece5dd;
+  box-shadow: 0 15px 35px rgba(92, 60, 36, .12);
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(92, 60, 36, .18);
+}
+
+.review-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  margin-bottom: 20px;
+}
+
+.review-card h2 {
+  margin-bottom: 15px;
+  color: #3b241c;
+}
+
+.review-card p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.review-stars {
+  display: inline-block;
+  background: #9b6b3f;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+
+/* Delete */
+
+.delete-btn {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f3eee8;
+
+  color: #7b4e2b;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: .3s;
+}
+
+.delete-btn:hover {
+  background: crimson;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* ================= FORM ================= */
+
+.review-form-card {
+
+  max-width: 750px;
+
+  margin: auto;
+
+  background: #ffffff;
+
+  border-radius: 25px;
+
+  padding: 45px;
+
+  border: 1px solid #ece5dd;
+
+  box-shadow: 0 20px 45px rgba(92,60,36,.12);
+
+}
+
+.review-form-card h2 {
+
+  text-align: center;
+
+  margin-bottom: 35px;
+
+  font-size: 34px;
+
+  color: #3b241c;
+
+}
+
+.review-form-card form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+
+}
+
+.review-form-card input,
+.review-form-card textarea {
+
+  background: #fafafa;
+
+  border: 1px solid #e5ddd3;
+
+  color: #333;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  transition: .3s;
+
+}
+
+.review-form-card input::placeholder,
+.review-form-card textarea::placeholder {
+
+  color: #999;
+
+}
+
+.review-form-card input:focus,
+.review-form-card textarea:focus {
+
+  outline: none;
+
+  border-color: #c89a68;
+
+  box-shadow: 0 0 0 4px rgba(200,154,104,.15);
+
+}
+
+.review-form-card textarea {
+
+  resize: vertical;
+
+  min-height: 150px;
+
+}
+
+/* Rating */
+
+.rating-select {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+}
+
+.rating-select span {
+
+  font-weight: bold;
+
+  color: #3b241c;
+
+}
+
+.star {
+
+  border: none;
+
+  background: transparent;
+
+  color: #cfcfcf;
+
+  font-size: 34px;
+
+  cursor: pointer;
+
+  transition: .25s;
+
+}
+
+.star:hover {
+
+  transform: scale(1.2);
+
+}
+
+.active-star {
+
+  color: #d4a373;
+
+}
+
+/* Submit */
+
+.submit-review-btn {
+
+  background: #9b6b3f;
+
+  color: white;
+
+  border: none;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: .35s;
+
+}
+
+.submit-review-btn:hover {
+
+  background: #7b4e2b;
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 15px 30px rgba(155,107,63,.30);
+
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:992px){
+
+.reviews-title{
+
+font-size:38px;
+
+}
+
+.review-form-card{
+
+padding:35px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.reviews-page{
+
+padding:100px 20px 60px;
+
+}
+
+.reviews-title{
+
+font-size:32px;
+
+}
+
+.review-form-card{
+
+padding:25px;
+
+}
+
+.review-form-card h2{
+
+font-size:28px;
+
+}
+
+.review-card{
+
+padding:25px;
+
+}
+
+.review-image{
+
+width:75px;
+height:75px;
+
+}
+
+.star{
+
+font-size:28px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.review-form-card input,
+.review-form-card textarea{
+
+padding:14px;
+font-size:15px;
+
+}
+
+.submit-review-btn{
+
+font-size:16px;
+
+padding:15px;
+
+}
+
+.rating-select{
+
+justify-content:center;
+
+}
+
+}

@@ -1,0 +1,166 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f8f3ec;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.tracking-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 20px;
+    background:linear-gradient(135deg,#f7efe6,#fff,#efe2d0);
+}
+
+.tracking-card{
+    width:100%;
+    max-width:700px;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+}
+
+.tracking-title{
+    text-align:center;
+    font-size:38px;
+    color:#4e2f1d;
+    margin-bottom:45px;
+    font-weight:bold;
+}
+
+.timeline{
+    position:relative;
+    margin-left:35px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:18px;
+    top:0;
+    width:4px;
+    height:100%;
+    background:#d7b483;
+    border-radius:10px;
+}
+
+.step{
+    display:flex;
+    align-items:flex-start;
+    position:relative;
+    margin-bottom:40px;
+}
+
+.icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#8b5e34;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+    z-index:2;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.content{
+    margin-left:25px;
+    background:#fff8ef;
+    width:100%;
+    border-left:6px solid #b07d45;
+    border-radius:15px;
+    padding:18px 22px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.content:hover{
+    transform:translateX(8px);
+}
+
+.content h3{
+    color:#5a341d;
+    margin-bottom:8px;
+    font-size:22px;
+}
+
+.content p{
+    color:#777;
+    font-size:15px;
+}
+
+.active .icon{
+    background:#d88a1d;
+    animation:pulse 1.5s infinite;
+}
+
+.active .content{
+    background:#ffe6bf;
+    border-left:6px solid #d88a1d;
+}
+
+.done .icon{
+    background:#6d4c2d;
+}
+
+.back-home{
+    margin-top:35px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    background:#8b5e34;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.back-home:hover{
+    background:#5a341d;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+@media(max-width:768px){
+
+.tracking-card{
+    padding:25px;
+}
+
+.tracking-title{
+    font-size:30px;
+}
+
+.content h3{
+    font-size:18px;
+}
+
+.timeline{
+    margin-left:15px;
+}
+
+}

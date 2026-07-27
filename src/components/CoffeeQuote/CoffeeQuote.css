@@ -1,0 +1,357 @@
+.coffee-quote{
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:#15110f;
+
+    background-image:
+    radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+
+    background-size:18px 18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:60px;
+
+    padding:60px 8%;
+
+    border-top:1px solid rgba(212,163,115,.25);
+
+    border-bottom:1px solid rgba(212,163,115,.25);
+
+}
+
+/* ================= */
+
+.line{
+
+    flex:1;
+
+    height:1px;
+
+    background:linear-gradient(90deg, rgba(156,112,68,0), rgba(156,112,68,.9));
+
+}
+
+.line.right{
+
+    background:linear-gradient(90deg, rgba(156,112,68,.9), rgba(156,112,68,0));
+
+}
+
+/* ================= */
+
+.quote-content{
+
+    text-align:center;
+
+    min-width:420px;
+
+}
+
+.coffee-icon{
+
+    display:inline-block;
+
+    width:44px;
+
+    height:44px;
+
+    margin-bottom:16px;
+
+    color:#d4a373;
+
+}
+
+.coffee-icon svg{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+}
+
+.quote-content h2{
+
+    color:#f5f0ea;
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-style:italic;
+
+    font-size:34px;
+
+    font-weight:400;
+
+    line-height:1.6;
+
+    letter-spacing:.3px;
+
+    margin:0;
+
+}
+
+/* ================= */
+/* Coffee Beans */
+
+.beans{
+
+    position:absolute;
+
+    color:#a9764a;
+
+    opacity:.22;
+
+    width:46px;
+
+    height:46px;
+
+    pointer-events:none;
+
+}
+
+.beans svg{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+}
+
+.bean1{
+
+    left:60px;
+
+    top:35px;
+
+    transform:rotate(-25deg);
+
+}
+
+.bean2{
+
+    left:180px;
+
+    bottom:30px;
+
+    transform:rotate(20deg);
+
+}
+
+.bean3{
+
+    right:120px;
+
+    top:25px;
+
+    transform:rotate(-15deg);
+
+}
+
+.bean4{
+
+    right:260px;
+
+    bottom:35px;
+
+    transform:rotate(25deg);
+
+}
+
+.bean5{
+
+    right:40px;
+
+    top:55px;
+
+    transform:rotate(-35deg);
+
+}
+
+/* ================= */
+
+@media(max-width:900px){
+
+.coffee-quote{
+
+flex-direction:column;
+
+gap:30px;
+
+padding:45px 20px;
+
+}
+
+.line{
+
+width:180px;
+
+flex:none;
+
+}
+
+.quote-content{
+
+min-width:unset;
+
+}
+
+.quote-content h2{
+
+font-size:26px;
+
+}
+
+.beans{
+
+display:none;
+
+}
+
+}
+/* ========================= */
+/* Tablet */
+
+@media (max-width: 992px) {
+
+  .coffee-quote{
+
+    padding:45px 30px;
+
+    gap:35px;
+
+  }
+
+  .quote-content{
+
+    min-width:300px;
+
+  }
+
+  .quote-content h2{
+
+    font-size:28px;
+
+  }
+
+  .coffee-icon{
+
+    width:36px;
+
+    height:36px;
+
+  }
+
+  .beans{
+
+    width:34px;
+
+    height:34px;
+
+  }
+
+}
+
+/* ========================= */
+/* Mobile */
+
+@media (max-width: 768px){
+
+  .coffee-quote{
+
+    flex-direction:column;
+
+    gap:22px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+  }
+
+  .line{
+
+    width:150px;
+
+    flex:none;
+
+  }
+
+  .quote-content{
+
+    min-width:100%;
+
+  }
+
+  .quote-content h2{
+
+    font-size:22px;
+
+    line-height:1.6;
+
+  }
+
+  .coffee-icon{
+
+    width:32px;
+
+    height:32px;
+
+  }
+
+  .beans{
+
+    display:none;
+
+  }
+
+}
+
+/* ========================= */
+/* Small Phones */
+
+@media (max-width:480px){
+
+  .coffee-quote{
+
+    padding:28px 15px;
+
+  }
+
+  .line{
+
+    width:100px;
+
+  }
+
+  .coffee-icon{
+
+    width:26px;
+
+    height:26px;
+
+    margin-bottom:10px;
+
+  }
+
+  .quote-content h2{
+
+    font-size:18px;
+
+    line-height:1.5;
+
+    letter-spacing:0;
+
+  }
+
+}

@@ -1,0 +1,221 @@
+/* ═══════════════════════════════════════════
+   HEADER SHELL
+═══════════════════════════════════════════ */
+.menu-header {
+  background: #1e0f07;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.5);
+}
+
+/* ── Top bar ─────────────────────────────── */
+.menu-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+  border-bottom: 1px solid rgba(201,125,46,0.2);
+}
+
+/* Brand */
+.menu-header__brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  text-decoration: none;
+  user-select: none;
+}
+
+.menu-header__logo-icon {
+  display: none;
+}
+
+.menu-header__brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── VELOURA word-mark — clean, sharp, luxury ── */
+.menu-header__brand-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #f5ede0;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+}
+
+/* ── CAFE sub-label ── */
+.menu-header__brand-tagline {
+  font-size: 8.5px;
+  letter-spacing: 0.4em;
+  color: #c97d2e;
+  text-transform: uppercase;
+  margin-top: 5px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+/* ── Cart button ─────────────────────────── */
+.menu-header__cart-btn {
+  position: relative;
+  background: rgba(201,125,46,0.12);
+  border: 1px solid rgba(201,125,46,0.3);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.menu-header__cart-btn:hover {
+  background: rgba(201,125,46,0.25);
+  border-color: #c97d2e;
+}
+
+.menu-header__cart-btn svg {
+  width: 20px;
+  height: 20px;
+  color: #d4a060;
+}
+
+.menu-header__cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #c97d2e;
+  color: #fff;
+  border-radius: 10px;
+  min-width: 18px;
+  height: 18px;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid #1e0f07;
+  line-height: 1;
+}
+
+/* ── Search bar ──────────────────────────── */
+.menu-header__search-wrap {
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.menu-header__search {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 0 14px;
+  height: 40px;
+  gap: 10px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.menu-header__search:focus-within {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(201,125,46,0.45);
+}
+
+.menu-header__search-icon {
+  width: 16px;
+  height: 16px;
+  color: #8a6040;
+  flex-shrink: 0;
+}
+
+.menu-header__search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 13.5px;
+  color: #e8d5be;
+  background: transparent;
+  font-family: inherit;
+}
+
+.menu-header__search-input::placeholder {
+  color: #6a4a2e;
+}
+
+.menu-header__filter-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+.menu-header__filter-btn:hover { opacity: 1; }
+.menu-header__filter-btn svg {
+  width: 18px;
+  height: 18px;
+  color: #d4a060;
+}
+
+/* ── Category tabs ───────────────────────── */
+.menu-header__categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0 13px;
+}
+
+.menu-header__categories::-webkit-scrollbar { display: none; }
+
+.menu-header__cat-btn {
+  flex-shrink: 0;
+  padding: 7px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 12.5px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.menu-header__cat-btn--active {
+  background: #c97d2e;
+  color: #fff;
+  border-color: #c97d2e;
+  box-shadow: 0 2px 12px rgba(201,125,46,0.3);
+}
+
+.menu-header__cat-btn--inactive {
+  background: rgba(255,255,255,0.05);
+  color: #b09070;
+  border-color: rgba(255,255,255,0.08);
+}
+
+.menu-header__cat-btn--inactive:hover {
+  background: rgba(255,255,255,0.1);
+  color: #e8d0b0;
+  border-color: rgba(255,255,255,0.16);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 480px) {
+  .menu-header { padding: 0 16px; }
+  .menu-header__top { height: 54px; }
+  .menu-header__brand-name { font-size: 19px; }
+}

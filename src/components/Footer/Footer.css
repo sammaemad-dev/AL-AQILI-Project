@@ -1,0 +1,223 @@
+/* ======================= */
+
+.footer{
+    /* margin-top:80px; */
+    background:#2b170d;
+    color:#fff;
+    /* border-top:3px solid #c99b63; */
+}
+
+/* ======================= */
+
+.footer-container{
+    max-width:1000px;
+    margin:auto;
+    padding:50px 20px 35px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:45px;
+}
+
+/* ======================= */
+
+.footer-logo{
+
+    font-size:38px;
+
+    color:#d8a86b;
+
+    letter-spacing:3px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+
+}
+
+.footer-text{
+
+    color:#ddd;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+/* ======================= */
+
+.footer-col h3{
+
+    font-size:22px;
+
+    margin-bottom:18px;
+
+    color:white;
+
+}
+
+/* ======================= */
+
+.footer-col a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:#ddd;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.footer-col a:hover{
+
+    color:#d8a86b;
+
+    transform:translateX(8px);
+
+}
+
+/* ======================= */
+
+.footer-col p{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#ddd;
+
+    margin-bottom:14px;
+
+    font-size:15px;
+
+}
+
+.footer-col span{
+
+    display:block;
+
+    color:#bbb;
+
+    margin-bottom:18px;
+
+    font-size:15px;
+
+}
+
+/* ======================= */
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    padding-bottom:30px;
+
+}
+
+.socials a{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#5b351f;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+}
+
+.socials a:hover{
+
+    background:#d8a86b;
+
+    color:#2b170d;
+
+    transform:translateY(-6px);
+
+}
+
+/* ======================= */
+
+.copyright{
+
+    background:#2b170d;
+
+    color:#d5d5d5;
+
+    text-align:center;
+
+    padding:18px;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+}
+
+/* ======================= */
+
+@media(max-width:900px){
+
+.footer-container{
+
+grid-template-columns:1fr 1fr;
+
+text-align:center;
+
+}
+
+.footer-col p{
+
+justify-content:center;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.footer-container{
+
+grid-template-columns:1fr;
+
+}
+
+.footer-logo{
+
+font-size:32px;
+
+}
+
+.socials{
+
+flex-wrap:wrap;
+
+}
+
+}

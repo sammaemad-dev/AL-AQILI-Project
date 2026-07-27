@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Dancing+Script:wght@600&family=Inter:wght@300;400&display=swap');
+
+.hero {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(8,4,2,0.92) 0%, rgba(8,4,2,0.75) 45%, rgba(8,4,2,0.1) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-left: 60px;
+  padding-top: 120px;
+  max-width: 650px;
+}
+
+.welcome-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 42px;
+  color: #d49a52;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  line-height: 1.08;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.explore-btn {
+  background: #d49a52;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.book-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.explore-btn:hover,
+.book-btn:hover {
+  transform: translateY(-2px);
+  transition: 0.3s;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+
+  .hero-content {
+    padding: 140px 40px 0;
+    max-width: 550px;
+  }
+
+  .welcome-text {
+    font-size: 34px;
+  }
+
+  .hero-content h1 {
+    font-size: 52px;
+  }
+
+  .hero-content p {
+    font-size: 17px;
+  }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 768px) {
+
+  .hero {
+    background-position: center right;
+  }
+
+  .hero-overlay {
+    background: rgba(10, 6, 4, 0.78);
+  }
+
+  .hero-content {
+    padding: 140px 25px 60px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .welcome-text {
+    font-size: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .explore-btn,
+  .book-btn {
+    width: 230px;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width: 480px) {
+
+  .hero-content {
+    padding: 120px 20px 50px;
+  }
+
+  .welcome-text {
+    font-size: 26px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .explore-btn,
+  .book-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+
+}
