@@ -4,78 +4,71 @@ import { Link } from "react-router-dom";
 function Register() {
   return (
     <section className="register-page">
+      <div className="register-card">
 
-      <div className="register-overlay"></div>
-
-      <div className="register-container">
-
-        {/* Left Side */}
-
-        <div className="register-left">
-
-          <h1>Veloura Cafe</h1>
-
-          <h2>
-            Join Our
-            <br />
-            Coffee Community
-          </h2>
-
-          <p>
-            Discover handcrafted coffee, exclusive offers,
-            and unforgettable moments. Create your account
-            and enjoy the Veloura experience.
-          </p>
-
+        <div className="register-logo">
+          <h1>AL AQILI</h1>
+          <span>LIGHTING COLLECTION</span>
         </div>
 
-        {/* Right Side */}
+        <h2>Create Your Account</h2>
 
-        <div className="register-card">
+        <p>
+          Join AL AQILI and discover luxury lighting crafted
+          to transform every corner of your home.
+        </p>
 
-          <h2>Create Account</h2>
+        <form className="register-form">
 
-          <form>
-
+          <div className="input-group">
+            <label>Full Name</label>
             <input
               type="text"
-              placeholder="Full Name"
+              placeholder="Enter your full name"
             />
+          </div>
 
+          <div className="input-group">
+            <label>Email Address</label>
             <input
               type="email"
-              placeholder="Email Address"
+              placeholder="Enter your email"
             />
+          </div>
 
+          <div className="input-group">
+            <label>Password</label>
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Create password"
             />
+          </div>
 
+          <div className="input-group">
+            <label>Confirm Password</label>
             <input
               type="password"
-              placeholder="Confirm Password"
+              placeholder="Confirm password"
             />
+          </div>
 
-            <button>
-              Create Account
-            </button>
+          <button
+            type="submit"
+            className="register-submit-btn"
+          >
+            Create Account
+          </button>
 
-          </form>
+        </form>
 
-          <p>
-            Already have an account?
-
-            <Link to="/login">
-              Login
-            </Link>
-
-          </p>
-
+        <div className="register-footer">
+          Already have an account?
+          <Link to="/login">
+            Login
+          </Link>
         </div>
 
       </div>
-
     </section>
   );
 }

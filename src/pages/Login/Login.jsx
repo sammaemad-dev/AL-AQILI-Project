@@ -4,49 +4,50 @@ import { Link } from "react-router-dom";
 function Login() {
   return (
     <section className="login-page">
-      <div className="login-container">
+      <div className="login-card">
 
-        <div className="login-left">
-          <div className="login-left-content">
-            <h1>Veloura Cafe</h1>
-
-            <h2>
-              Welcome
-              <br />
-              Back
-            </h2>
-
-            <p>
-              Sign in to continue your coffee journey,
-              explore our menu, and enjoy exclusive
-              member benefits at Veloura Cafe.
-            </p>
-          </div>
+        <div className="login-logo">
+          <h1>AL AQILI</h1>
+          <span>LIGHTING COLLECTION</span>
         </div>
 
-        <div className="login-card">
-          <h2>Sign In</h2>
+        <h2>Welcome Back</h2>
 
-          <form>
+        <p>
+          Sign in to explore premium lighting collections
+          and manage your account.
+        </p>
+
+        <form>
+
+          <div className="input-group">
+            <label>Email</label>
             <input
               type="email"
-              placeholder="Email Address"
+              placeholder="Enter your email"
             />
+          </div>
 
+          <div className="input-group">
+            <label>Password</label>
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Enter your password"
             />
+          </div>
 
-            <button type="submit">
-              Login
-            </button>
-          </form>
+          {/* غيرنا اسم الكلاس هنا */}
+          <button type="submit" className="login-submit-btn">
+            Login
+          </button>
 
-          <p>
-            Don't have an account?
-            <Link to="/register"> Register</Link>
-          </p>
+        </form>
+
+        <div className="login-footer">
+          Don't have an account?
+          <Link to="/register">
+            Register
+          </Link>
         </div>
 
       </div>
