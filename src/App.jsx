@@ -21,6 +21,7 @@ import Cart from "./pages/Cart/Cart";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Reviews from "./pages/Reviews/Reviews";
 import Tracking from "./pages/Tracking/Tracking";
+import Chandeliers from "./pages/Chandeliers/Chandeliers";
 
 function AppContent() {
   const [cart, setCart] = useState({});
@@ -74,6 +75,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/our-cafe" element={<OurCafe />} />
+        <Route path="/chandeliers" element={<Chandeliers />} />
 
         <Route
           path="/product/:id"
@@ -89,6 +91,7 @@ function AppContent() {
 
       {!hideLayout && <Footer />}
     </>
+    
   );
 }
 
