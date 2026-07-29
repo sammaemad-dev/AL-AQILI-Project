@@ -7,6 +7,7 @@ import {
   FaFacebookF,
   FaInstagram,
   FaTwitter,
+  FaPaperPlane,
 } from "react-icons/fa";
 
 function Contact() {
@@ -15,112 +16,186 @@ function Contact() {
 
       <div className="contact-container">
 
+        {/* Title */}
+
         <div className="contact-title">
 
-          <h1>Get In Touch With Veloura</h1>
+          <span className="contact-badge">
+            Luxury Lighting Experience
+          </span>
+
+          <h1>Let's Illuminate Your Space</h1>
 
           <p>
-            We'd love to hear from you. Fill out the form and we'll get
-            back to you as soon as possible.
+            Whether you're looking for elegant chandeliers, luxury wall lights,
+            or complete lighting solutions, our team is here to help create the
+            perfect atmosphere for your home.
           </p>
 
         </div>
 
+        {/* Content */}
+
         <div className="contact-content">
 
-          {/* Left Side */}
+          {/* LEFT */}
 
-          <div className="contact-info">
+          <aside className="contact-info">
 
-            <h2>Our Cafe</h2>
+            <div className="gold-circle"></div>
 
-            <div className="info">
+            <h2>Visit Our Showroom</h2>
 
-              <p>
-                <FaMapMarkerAlt className="icon" />
-                Downtown, Cairo, Egypt
-              </p>
+            <p className="info-text">
+              Experience our premium lighting collection in person and get
+              personalized recommendations from our specialists.
+            </p>
 
-              <p>
-                <FaPhoneAlt className="icon" />
-                +20 100 000 0000
-              </p>
+            <div className="info-card">
 
-              <p>
-                <FaEnvelope className="icon" />
-                hello@veloura.com
-              </p>
+              <div className="info-item">
+                <div className="icon-box">
+                  <FaMapMarkerAlt />
+                </div>
 
-              <p>
-                <FaClock className="icon" />
-                Everyday 8:00 AM - 12:00 AM
-              </p>
+                <div>
+                  <h4>Address</h4>
+                  <p>Cairo, Egypt</p>
+                </div>
+              </div>
+
+              <div className="info-item">
+                <div className="icon-box">
+                  <FaPhoneAlt />
+                </div>
+
+                <div>
+                  <h4>Phone</h4>
+                  <p>+20 100 000 0000</p>
+                </div>
+              </div>
+
+              <div className="info-item">
+                <div className="icon-box">
+                  <FaEnvelope />
+                </div>
+
+                <div>
+                  <h4>Email</h4>
+                  <p>info@alaqili.com</p>
+                </div>
+              </div>
+
+              <div className="info-item">
+                <div className="icon-box">
+                  <FaClock />
+                </div>
+
+                <div>
+                  <h4>Working Hours</h4>
+                  <p>Sat - Thu | 10 AM - 10 PM</p>
+                </div>
+              </div>
 
             </div>
 
-            <h3>Follow Us</h3>
+            <div className="social-section">
 
-            <div className="socials">
+              <h3>Follow Us</h3>
 
-              <FaFacebookF />
+              <div className="socials">
 
-              <FaInstagram />
+                <a href="#">
+                  <FaFacebookF />
+                </a>
 
-              <FaTwitter />
+                <a href="#">
+                  <FaInstagram />
+                </a>
+
+                <a href="#">
+                  <FaTwitter />
+                </a>
+
+              </div>
 
             </div>
+
+          </aside>
+
+          {/* RIGHT */}
+
+          <div className="contact-form-card">
+
+            <h2>Send Us a Message</h2>
+
+            <p>
+              Fill out the form below and one of our lighting experts will get
+              back to you shortly.
+            </p>
+
+            <form className="contact-form">
+
+              <div className="grid">
+
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Phone Number"
+                />
+
+                <select>
+
+                  <option>Select Product</option>
+
+                  <option>Chandeliers</option>
+
+                  <option>Wall Lights</option>
+
+                  <option>Light Panels</option>
+
+                  <option>Decor</option>
+
+                  <option>Plants</option>
+
+                </select>
+
+              </div>
+
+              <input
+                className="subject"
+                type="text"
+                placeholder="Subject"
+              />
+
+              <textarea
+                placeholder="Tell us about your project..."
+              ></textarea>
+
+              <button>
+
+                <FaPaperPlane />
+
+                Send Message
+
+              </button>
+
+              <span className="note">
+                We usually reply within 24 hours.
+              </span>
+
+            </form>
 
           </div>
-
-          {/* Right Side */}
-
-          <form className="contact-form">
-
-            <input
-              type="text"
-              placeholder="Full Name"
-            />
-
-            <input
-              type="email"
-              placeholder="Email Address"
-            />
-
-            <input
-              type="text"
-              placeholder="Phone Number"
-            />
-
-            <select>
-
-              <option>Choose Service</option>
-
-              <option>Reservation</option>
-
-              <option>Private Event</option>
-
-              <option>Catering</option>
-
-              <option>Feedback</option>
-
-            </select>
-
-            <input
-              type="text"
-              placeholder="Preferred Date"
-            />
-
-            <textarea
-              placeholder="Tell us how we can help..."
-            ></textarea>
-
-            <button>
-
-              Send Message
-
-            </button>
-
-          </form>
 
         </div>
 
