@@ -22,7 +22,11 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Reviews from "./pages/Reviews/Reviews";
 import Tracking from "./pages/Tracking/Tracking";
 import Chandeliers from "./pages/Chandeliers/Chandeliers";
-
+import WallLights from "./pages/WallLights/WallLights";
+import LightPanels from "./pages/LightPanels/LightPanels";
+import Decor from "./pages/Decor/Decor";
+import Plants from "./pages/Plants/Plants";
+import Accessories from "./pages/Accessories/Accessories";
 function AppContent() {
   const [cart, setCart] = useState({});
   const location = useLocation();
@@ -76,7 +80,11 @@ function AppContent() {
 
         <Route path="/our-cafe" element={<OurCafe />} />
         <Route path="/chandeliers" element={<Chandeliers />} />
-
+        <Route path="/wall-lights" element={<WallLights />} />
+        <Route path="/light-panels" element={<LightPanels />} />
+<Route path="/decor" element={<Decor />} />
+<Route path="/plants" element={<Plants />} />
+<Route path="/accessories" element={<Accessories />} />
         <Route
           path="/product/:id"
           element={<ProductDetails />}
