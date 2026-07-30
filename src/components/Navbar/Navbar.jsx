@@ -11,36 +11,26 @@ import {
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // غيريها لـ true بعد الـ Authentication
-  const isLoggedIn = false;
+  // هيبقى true لو فيه token بعد الـ Login
+  const token = localStorage.getItem("token");
+  const isLoggedIn = !!token;
 
   return (
     <nav className="navbar">
 
       {/* Logo */}
-
-      {/* <div className="logo">
-        <Link to="/" onClick={() => setMenuOpen(false)}>
+      <div className="logo">
+        {/* <Link
+          to="/"
+          className="logo-link"
+          onClick={() => setMenuOpen(false)}
+        > */}
           <h2>AL AQILI</h2>
           <p>LIGHTING</p>
-        </Link>
-      </div> */}
-
-      {/* Logo */}
-
-<div className="logo">
-  {/* <Link
-    to="/"
-    className="logo-link"
-    onClick={() => setMenuOpen(false)}
-  > */}
-    <h2>AL AQILI</h2>
-    <p>LIGHTING</p>
-  {/* </Link> */}
-</div> 
+        {/* </Link> */}
+      </div>
 
       {/* Hamburger */}
-
       <div
         className={`hamburger ${menuOpen ? "active" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
@@ -51,86 +41,25 @@ function Navbar() {
       </div>
 
       {/* Navigation */}
-
       <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
 
-        <li>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-        </li>
+        <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
 
-        <li>
-          <Link
-            to="/chandeliers"
-            onClick={() => setMenuOpen(false)}
-          >
-            Chandeliers
-          </Link>
-        </li>
+        <li><Link to="/chandeliers" onClick={() => setMenuOpen(false)}>Chandeliers</Link></li>
 
-        <li>
-          <Link
-            to="/wall-lights"
-            onClick={() => setMenuOpen(false)}
-          >
-            Wall Lights
-          </Link>
-        </li>
+        <li><Link to="/wall-lights" onClick={() => setMenuOpen(false)}>Wall Lights</Link></li>
 
-        <li>
-          <Link
-            to="/light-panels"
-            onClick={() => setMenuOpen(false)}
-          >
-            Light Panels
-          </Link>
-        </li>
+        <li><Link to="/light-panels" onClick={() => setMenuOpen(false)}>Light Panels</Link></li>
 
-        <li>
-          <Link
-            to="/decor"
-            onClick={() => setMenuOpen(false)}
-          >
-            Decor
-          </Link>
-        </li>
+        <li><Link to="/decor" onClick={() => setMenuOpen(false)}>Decor</Link></li>
 
-        <li>
-          <Link
-            to="/plants"
-            onClick={() => setMenuOpen(false)}
-          >
-            Plants
-          </Link>
-        </li>
+        <li><Link to="/plants" onClick={() => setMenuOpen(false)}>Plants</Link></li>
 
-        <li>
-          <Link
-            to="/accessories"
-            onClick={() => setMenuOpen(false)}
-          >
-            Accessories
-          </Link>
-        </li>
+        <li><Link to="/accessories" onClick={() => setMenuOpen(false)}>Accessories</Link></li>
 
-        <li>
-          <Link
-            to="/about"
-            onClick={() => setMenuOpen(false)}
-          >
-            About
-          </Link>
-        </li>
+        <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
 
-        <li>
-          <Link
-            to="/contact"
-            onClick={() => setMenuOpen(false)}
-          >
-            Contact
-          </Link>
-        </li>
+        <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
 
         {/* Mobile */}
 
@@ -159,24 +88,15 @@ function Navbar() {
 
             <FiSearch />
 
-            <Link
-              to="/profile"
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/profile" onClick={() => setMenuOpen(false)}>
               <FiUser />
             </Link>
 
-            <Link
-              to="/wishlist"
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/wishlist" onClick={() => setMenuOpen(false)}>
               <FiHeart />
             </Link>
 
-            <Link
-              to="/cart"
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/cart" onClick={() => setMenuOpen(false)}>
               <FiShoppingBag />
             </Link>
 
@@ -190,17 +110,11 @@ function Navbar() {
       {!isLoggedIn ? (
         <div className="auth-buttons">
 
-          <Link
-            to="/login"
-            className="login-btn"
-          >
+          <Link to="/login" className="login-btn">
             Login
           </Link>
 
-          <Link
-            to="/register"
-            className="register-btn"
-          >
+          <Link to="/register" className="register-btn">
             Register
           </Link>
 
@@ -208,18 +122,19 @@ function Navbar() {
       ) : (
         <div className="nav-icons">
 
-          <FiSearch title="Search" />
+          <FiSearch className="icon" title="Search" />
 
           <Link to="/profile">
-            <FiUser title="Account" />
+            <FiUser className="icon" title="Profile" />
           </Link>
 
           <Link to="/wishlist">
-            <FiHeart title="Wishlist" />
+            <FiHeart className="icon" title="Wishlist" />
           </Link>
 
-          <Link to="/cart">
-            <FiShoppingBag title="Cart" />
+          <Link to="/cart" className="cart-icon">
+            <FiShoppingBag className="icon" title="Cart" />
+            <span className="cart-count">1</span>
           </Link>
 
         </div>

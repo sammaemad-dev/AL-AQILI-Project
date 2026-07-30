@@ -22,18 +22,18 @@ function Footer() {
         <div className="footer-col">
 
           <h2 className="footer-logo">
-            VELOURA
+            AL AQILI
           </h2>
 
           <p className="footer-text">
-            Experience handcrafted coffee made with premium beans,
-            warm hospitality and unforgettable moments.
-            Every cup is brewed with passion.
+            Discover premium lighting solutions crafted to bring elegance,
+            luxury, and warmth into every space. From chandeliers to modern
+            décor, AL AQILI lights your home beautifully.
           </p>
 
         </div>
 
-        {/* Links */}
+        {/* Quick Links */}
 
         <div className="footer-col">
 
@@ -43,11 +43,11 @@ function Footer() {
 
           <Link to="/about">About</Link>
 
-          <Link to="/menu">Menu</Link>
-
-          <Link to="/reviews">Reviews</Link>
+          <Link to="/chandeliers">Chandeliers</Link>
 
           <Link to="/contact">Contact</Link>
+
+          <Link to="/login">Login</Link>
 
         </div>
 
@@ -69,24 +69,26 @@ function Footer() {
 
           <p>
             <FaEnvelope />
-            hello@veloura.com
+            info@alaqili.com
           </p>
 
         </div>
 
-        {/* Hours */}
+        {/* Categories */}
 
         <div className="footer-col">
 
-          <h3>Opening Hours</h3>
+          <h3>Categories</h3>
 
-          <p>Monday - Friday</p>
+          <Link to="/chandeliers">Chandeliers</Link>
 
-          <span>8:00 AM - 11:00 PM</span>
+          <Link to="/wall-lights">Wall Lights</Link>
 
-          <p>Saturday - Sunday</p>
+          <Link to="/light-panels">Light Panels</Link>
 
-          <span>9:00 AM - 12:00 AM</span>
+          <Link to="/decor">Decor</Link>
+
+          <Link to="/plants">Artificial Plants</Link>
 
         </div>
 
@@ -114,7 +116,7 @@ function Footer() {
 
       <div className="copyright">
 
-        © 2026 Veloura Cafe. All Rights Reserved.
+        © 2026 AL AQILI Lighting. All Rights Reserved.
 
       </div>
 

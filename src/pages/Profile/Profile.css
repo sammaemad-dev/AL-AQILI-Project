@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.profile-page{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:80px 20px;
+
+    background:#faf8f5;
+
+    font-family:"Poppins",sans-serif;
+
+}
+
+.profile-card{
+
+    width:460px;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:45px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.08);
+
+    border:1px solid rgba(201,154,46,.15);
+
+}
+
+/* ===================== */
+
+.profile-header{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.avatar{
+
+    width:120px;
+    height:120px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#D8AE4D,#C99A2E);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:55px;
+
+    box-shadow:
+    0 12px 30px rgba(201,154,46,.35);
+
+}
+
+.profile-header h2{
+
+    margin-top:22px;
+
+    font-size:34px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    color:#222;
+
+}
+
+.profile-header p{
+
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+/* ===================== */
+
+.profile-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.profile-menu button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#faf8f5;
+
+    color:#333;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.profile-menu button svg{
+
+    font-size:22px;
+
+    color:#C99A2E;
+
+}
+
+.profile-menu button:hover{
+
+    background:#C99A2E;
+
+    color:white;
+
+    transform:translateX(6px);
+
+}
+
+.profile-menu button:hover svg{
+
+    color:white;
+
+}
+
+.logout{
+
+    margin-top:12px;
+
+    background:#c0392b !important;
+
+    color:#fff !important;
+
+}
+
+.logout svg{
+
+    color:#fff !important;
+
+}
+
+.logout:hover{
+
+    background:#a93226 !important;
+
+    transform:translateX(6px);
+
+}
+
+/* ===================== */
+
+@media(max-width:600px){
+
+.profile-card{
+
+width:100%;
+
+padding:30px 22px;
+
+}
+
+.avatar{
+
+width:100px;
+height:100px;
+
+font-size:45px;
+
+}
+
+.profile-header h2{
+
+font-size:28px;
+
+}
+
+.profile-menu button{
+
+padding:16px;
+
+font-size:15px;
+
+}
+
+}

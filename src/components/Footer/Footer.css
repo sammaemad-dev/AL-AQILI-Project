@@ -1,64 +1,102 @@
-/* ======================= */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 .footer{
-    /* margin-top:80px; */
-    background:#2b170d;
-    color:#fff;
-    /* border-top:3px solid #c99b63; */
-}
 
-/* ======================= */
+    margin-top:80px;
+
+    background:#f8f4ee;
+
+    border-top:2px solid #C99A2E;
+
+    font-family:"Poppins",sans-serif;
+
+}
 
 .footer-container{
-    max-width:1000px;
+
+    max-width:1300px;
+
     margin:auto;
-    padding:50px 20px 35px;
+
+    padding:70px 30px 50px;
 
     display:grid;
-    grid-template-columns:repeat(4,1fr);
 
-    gap:45px;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:60px;
+
 }
 
-/* ======================= */
+/* ===================== */
 
 .footer-logo{
 
-    font-size:38px;
+    font-family:"Cormorant Garamond",serif;
 
-    color:#d8a86b;
+    font-size:48px;
 
-    letter-spacing:3px;
+    color:#C99A2E;
 
-    font-weight:800;
+    letter-spacing:5px;
 
     margin-bottom:18px;
+
+    font-weight:700;
 
 }
 
 .footer-text{
 
-    color:#ddd;
+    color:#666;
 
-    line-height:1.8;
+    line-height:1.9;
 
     font-size:15px;
 
+    max-width:360px;
+
 }
 
-/* ======================= */
+/* ===================== */
 
 .footer-col h3{
 
-    font-size:22px;
+    color:#222;
 
-    margin-bottom:18px;
+    font-size:23px;
 
-    color:white;
+    margin-bottom:22px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    position:relative;
 
 }
 
-/* ======================= */
+.footer-col h3::after{
+
+    content:"";
+
+    width:45px;
+
+    height:2px;
+
+    background:#C99A2E;
+
+    display:block;
+
+    margin-top:8px;
+
+}
+
+/* ===================== */
 
 .footer-col a{
 
@@ -66,9 +104,9 @@
 
     text-decoration:none;
 
-    color:#ddd;
+    color:#666;
 
-    margin-bottom:12px;
+    margin-bottom:14px;
 
     transition:.3s;
 
@@ -78,13 +116,13 @@
 
 .footer-col a:hover{
 
-    color:#d8a86b;
+    color:#C99A2E;
 
     transform:translateX(8px);
 
 }
 
-/* ======================= */
+/* ===================== */
 
 .footer-col p{
 
@@ -92,29 +130,25 @@
 
     align-items:center;
 
-    gap:10px;
+    gap:12px;
 
-    color:#ddd;
+    color:#666;
 
-    margin-bottom:14px;
+    margin-bottom:16px;
 
-    font-size:15px;
-
-}
-
-.footer-col span{
-
-    display:block;
-
-    color:#bbb;
-
-    margin-bottom:18px;
-
-    font-size:15px;
+    line-height:1.8;
 
 }
 
-/* ======================= */
+.footer-col svg{
+
+    color:#C99A2E;
+
+    font-size:18px;
+
+}
+
+/* ===================== */
 
 .socials{
 
@@ -124,55 +158,63 @@
 
     gap:18px;
 
-    padding-bottom:30px;
+    padding-bottom:35px;
 
 }
 
 .socials a{
 
-    width:45px;
+    width:50px;
 
-    height:45px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    height:50px;
 
     border-radius:50%;
 
-    background:#5b351f;
+    display:flex;
 
-    color:white;
+    justify-content:center;
+
+    align-items:center;
+
+    background:white;
+
+    color:#C99A2E;
+
+    border:1px solid #eadfcf;
 
     text-decoration:none;
 
     transition:.35s;
 
+    font-size:18px;
+
 }
 
 .socials a:hover{
 
-    background:#d8a86b;
+    background:#C99A2E;
 
-    color:#2b170d;
+    color:white;
 
     transform:translateY(-6px);
 
+    box-shadow:0 12px 25px rgba(201,154,46,.25);
+
 }
 
-/* ======================= */
+/* ===================== */
 
 .copyright{
 
-    background:#2b170d;
-
-    color:#d5d5d5;
-
     text-align:center;
 
-    padding:18px;
+    padding:22px;
+
+    color:#777;
+
+    background:#f3ede5;
+
+    border-top:1px solid #e4d8c6;
 
     font-size:14px;
 
@@ -180,15 +222,35 @@
 
 }
 
-/* ======================= */
+/* ===================== */
 
-@media(max-width:900px){
+@media(max-width:992px){
 
 .footer-container{
 
 grid-template-columns:1fr 1fr;
 
+gap:45px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.footer-container{
+
+grid-template-columns:1fr;
+
 text-align:center;
+
+padding:50px 25px;
+
+}
+
+.footer-text{
+
+max-width:100%;
 
 }
 
@@ -198,25 +260,21 @@ justify-content:center;
 
 }
 
-}
+.footer-col h3::after{
 
-@media(max-width:600px){
-
-.footer-container{
-
-grid-template-columns:1fr;
-
-}
-
-.footer-logo{
-
-font-size:32px;
+margin:10px auto 0;
 
 }
 
 .socials{
 
 flex-wrap:wrap;
+
+}
+
+.footer-logo{
+
+font-size:42px;
 
 }
 

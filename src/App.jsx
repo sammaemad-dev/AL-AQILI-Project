@@ -27,6 +27,7 @@ import LightPanels from "./pages/LightPanels/LightPanels";
 import Decor from "./pages/Decor/Decor";
 import Plants from "./pages/Plants/Plants";
 import Accessories from "./pages/Accessories/Accessories";
+import Profile from "./pages/Profile/Profile";
 function AppContent() {
   const [cart, setCart] = useState({});
   const location = useLocation();
@@ -91,6 +92,7 @@ function AppContent() {
         />
 
         <Route path="/reviews" element={<Reviews />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route path="/tracking" element={<Tracking />} />
       </Routes>
