@@ -1,61 +1,84 @@
 import "./About.css";
-import aboutImage from "../../sections/images/About.png";
+import aboutImage from "../../assets/categories/about-lighting.jpg";
 import { Link } from "react-router-dom";
+import {
+  FaGem,
+  FaLightbulb,
+  FaAward,
+  FaHandshake,
+} from "react-icons/fa";
+
 function About() {
   return (
-    <section className="about" id="about">
+    <section className="about">
+
       <div className="about-container">
 
         <div className="about-image">
-          <img src={aboutImage} alt="Veloura Coffee" />
+
+          <img
+            src={aboutImage}
+            alt="AL AQILI Lighting"
+          />
+
         </div>
 
         <div className="about-content">
-          <span className="about-subtitle">About Us</span>
+
+          <span className="about-subtitle">
+            ABOUT AL AQILI
+          </span>
 
           <h2>
-            More Than Just
+            Luxury Lighting
             <br />
-            a <span>Coffee</span>
+            For Every
+            <span> Space</span>
           </h2>
 
           <p>
-            At Veloura, we believe coffee is more than a drink —
-            it's an experience. Every cup we serve is a blend of
-            passion, quality, and perfection.
+            At AL AQILI, we believe lighting is more than illumination.
+            It is an expression of elegance, sophistication, and timeless
+            design. We carefully select premium chandeliers, wall lights,
+            decorative pieces, and modern lighting solutions to transform
+            every interior into a luxurious experience.
           </p>
 
-          <div className="features">
-            <div className="feature">
-              <span>✓</span>
-              <p>Sustainably Sourced Beans</p>
+          <div className="about-features">
+
+            <div className="about-feature">
+              <FaGem />
+              <h4>Premium Quality</h4>
             </div>
 
-            <div className="feature">
-              <span>✓</span>
-              <p>Ethically Traded</p>
+            <div className="about-feature">
+              <FaLightbulb />
+              <h4>Modern Designs</h4>
             </div>
 
-            <div className="feature">
-              <span>✓</span>
-              <p>Freshly Roasted</p>
+            <div className="about-feature">
+              <FaAward />
+              <h4>Luxury Collection</h4>
             </div>
 
-            <div className="feature">
-              <span>✓</span>
-              <p>Barista Crafted</p>
+            <div className="about-feature">
+              <FaHandshake />
+              <h4>Trusted Service</h4>
             </div>
+
           </div>
 
-          {/* <button className="learn-btn">
-            Learn More →
-          </button> */}
-          <Link to="/our-cafe" className="learn-btn">
-  Show the location →
-</Link>
+          <Link
+            to="/contact"
+            className="learn-btn"
+          >
+            Explore Collection →
+          </Link>
+
         </div>
 
       </div>
+
     </section>
   );
 }
