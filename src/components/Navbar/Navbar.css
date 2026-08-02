@@ -380,3 +380,13 @@ letter-spacing:4px;
 }
 
 }
+.cart-button{
+    border:none;
+    background:transparent;
+    padding:0;
+    cursor:pointer;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}

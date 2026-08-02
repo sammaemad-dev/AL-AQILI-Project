@@ -10,10 +10,11 @@ import {
 } from "lucide-react";
 
 import { useCart } from "../../context/CartContext";
+import CartDrawer from "../Cart/CartDrawer";
 
 function Navbar() {
-
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
 
   const token = localStorage.getItem("token");
   const isLoggedIn = !!token;
@@ -26,126 +27,117 @@ function Navbar() {
   );
 
   return (
+    <>
+      <nav className="navbar">
 
-    <nav className="navbar">
+        {/* Logo */}
 
-      {/* Logo */}
+        <div className="logo">
+          <h2>AL AQILI</h2>
+          <p>LIGHTING</p>
+        </div>
 
-      <div className="logo">
+        {/* Hamburger */}
 
-        <h2>AL AQILI</h2>
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-        <p>LIGHTING</p>
+        {/* Navigation */}
 
-      </div>
+        <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
 
-      {/* Hamburger */}
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/chandeliers">Chandeliers</Link></li>
+          <li><Link to="/wall-lights">Wall Lights</Link></li>
+          <li><Link to="/light-panels">Light Panels</Link></li>
+          <li><Link to="/decor">Decor</Link></li>
+          <li><Link to="/plants">Plants</Link></li>
+          <li><Link to="/accessories">Accessories</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
 
-      <div
-        className={`hamburger ${menuOpen ? "active" : ""}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
+          {!isLoggedIn ? (
 
-        <span></span>
+            <div className="mobile-auth">
 
-        <span></span>
+              <Link
+                to="/login"
+                className="login-btn"
+              >
+                Login
+              </Link>
 
-        <span></span>
+              <Link
+                to="/register"
+                className="register-btn"
+              >
+                Register
+              </Link>
 
-      </div>
+            </div>
 
-      {/* Navigation */}
+          ) : (
 
-      <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
+            <div className="mobile-icons">
 
-        <li>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-        </li>
+              <Search
+                className="nav-icon"
+                size={24}
+              />
 
-        <li>
-          <Link
-            to="/chandeliers"
-            onClick={() => setMenuOpen(false)}
-          >
-            Chandeliers
-          </Link>
-        </li>
+              <Link to="/profile">
+                <UserRound
+                  className="nav-icon"
+                  size={24}
+                />
+              </Link>
 
-        <li>
-          <Link
-            to="/wall-lights"
-            onClick={() => setMenuOpen(false)}
-          >
-            Wall Lights
-          </Link>
-        </li>
+              <Link to="/wishlist">
+                <Heart
+                  className="nav-icon"
+                  size={24}
+                />
+              </Link>
 
-        <li>
-          <Link
-            to="/light-panels"
-            onClick={() => setMenuOpen(false)}
-          >
-            Light Panels
-          </Link>
-        </li>
+              <button
+                className="cart-button"
+                onClick={() => setOpenCart(true)}
+              >
 
-        <li>
-          <Link
-            to="/decor"
-            onClick={() => setMenuOpen(false)}
-          >
-            Decor
-          </Link>
-        </li>
+                <ShoppingBag
+                  className="nav-icon"
+                  size={24}
+                />
 
-        <li>
-          <Link
-            to="/plants"
-            onClick={() => setMenuOpen(false)}
-          >
-            Plants
-          </Link>
-        </li>
+                {cartCount > 0 && (
+                  <span className="cart-count">
+                    {cartCount}
+                  </span>
+                )}
 
-        <li>
-          <Link
-            to="/accessories"
-            onClick={() => setMenuOpen(false)}
-          >
-            Accessories
-          </Link>
-        </li>
+              </button>
 
-        <li>
-          <Link
-            to="/about"
-            onClick={() => setMenuOpen(false)}
-          >
-            About
-          </Link>
-        </li>
+            </div>
 
-        <li>
-          <Link
-            to="/contact"
-            onClick={() => setMenuOpen(false)}
-          >
-            Contact
-          </Link>
-        </li>
+          )}
 
-        {/* Mobile */}
+        </ul>
+
+        {/* Desktop */}
 
         {!isLoggedIn ? (
 
-          <div className="mobile-auth">
+          <div className="auth-buttons">
 
             <Link
               to="/login"
               className="login-btn"
-              onClick={() => setMenuOpen(false)}
             >
               Login
             </Link>
@@ -153,7 +145,6 @@ function Navbar() {
             <Link
               to="/register"
               className="register-btn"
-              onClick={() => setMenuOpen(false)}
             >
               Register
             </Link>
@@ -162,149 +153,57 @@ function Navbar() {
 
         ) : (
 
-          <div className="mobile-icons">
+          <div className="nav-icons">
 
             <Search
               className="nav-icon"
-              size={24}
-              strokeWidth={1.8}
+              size={26}
             />
 
-            <Link
-              to="/profile"
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/profile">
               <UserRound
                 className="nav-icon"
-                size={24}
-                strokeWidth={1.8}
+                size={26}
               />
             </Link>
 
-            <Link
-              to="/wishlist"
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/wishlist">
               <Heart
                 className="nav-icon"
-                size={24}
-                strokeWidth={1.8}
+                size={26}
               />
             </Link>
 
-            <Link
-              to="/cart"
-              className="cart-icon"
-              onClick={() => setMenuOpen(false)}
+            <button
+              className="cart-button"
+              onClick={() => setOpenCart(true)}
             >
 
               <ShoppingBag
                 className="nav-icon"
-                size={24}
-                strokeWidth={1.8}
+                size={26}
               />
 
               {cartCount > 0 && (
-
                 <span className="cart-count">
-
                   {cartCount}
-
                 </span>
-
               )}
 
-            </Link>
+            </button>
 
           </div>
 
         )}
 
-      </ul>
+      </nav>
 
-      {/* Desktop */}
-
-      {!isLoggedIn ? (
-
-        <div className="auth-buttons">
-
-          <Link
-            to="/login"
-            className="login-btn"
-          >
-            Login
-          </Link>
-
-          <Link
-            to="/register"
-            className="register-btn"
-          >
-            Register
-          </Link>
-
-        </div>
-
-      ) : (
-
-        <div className="nav-icons">
-
-          <Search
-            className="nav-icon"
-            size={26}
-            strokeWidth={1.8}
-          />
-
-          <Link to="/profile">
-
-            <UserRound
-              className="nav-icon"
-              size={26}
-              strokeWidth={1.8}
-            />
-
-          </Link>
-
-          <Link to="/wishlist">
-
-            <Heart
-              className="nav-icon"
-              size={26}
-              strokeWidth={1.8}
-            />
-
-          </Link>
-
-          <Link
-            to="/cart"
-            className="cart-icon"
-          >
-
-            <ShoppingBag
-              className="nav-icon"
-              size={26}
-              strokeWidth={1.8}
-            />
-
-            {cartCount > 0 && (
-
-              <span className="cart-count">
-
-                {cartCount}
-
-              </span>
-
-            )}
-
-          </Link>
-
-        </div>
-
-      )}
-
-    </nav>
-
+      <CartDrawer
+        open={openCart}
+        onClose={() => setOpenCart(false)}
+      />
+    </>
   );
-
 }
 
 export default Navbar;
