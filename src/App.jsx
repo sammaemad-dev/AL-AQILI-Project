@@ -16,11 +16,9 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Contact from "./pages/Contact/Contact";
 import OurCafe from "./pages/OurCafe/OurCafe";
-import Menu from "./pages/Menu/Menu";
 
-import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Reviews from "./pages/Reviews/Reviews";
-import Tracking from "./pages/Tracking/Tracking";
+
 import Chandeliers from "./pages/Chandeliers/Chandeliers";
 import WallLights from "./pages/WallLights/WallLights";
 import LightPanels from "./pages/LightPanels/LightPanels";
@@ -46,9 +44,9 @@ function AppContent() {
 
         <Route path="/about" element={<About />} />
 
-        <Route path="/menu" element={<Menu />} />
-
         
+
+  
 
         <Route path="/register" element={<Register />} />
 
@@ -70,16 +68,13 @@ function AppContent() {
 
         <Route path="/accessories" element={<Accessories />} />
 
-        <Route
-          path="/product/:id"
-          element={<ProductDetails />}
-        />
+      
 
         <Route path="/reviews" element={<Reviews />} />
 
         <Route path="/profile" element={<Profile />} />
 
-        <Route path="/tracking" element={<Tracking />} />
+        
 
       </Routes>
 
