@@ -5,8 +5,6 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import { CartProvider } from "./context/CartContext";
-
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
@@ -19,14 +17,18 @@ import OurCafe from "./pages/OurCafe/OurCafe";
 
 import Reviews from "./pages/Reviews/Reviews";
 import Cart from "./pages/Cart/Cart";
+import Wishlist from "./pages/Wishlist/Wishlist";
+import Checkout from "./pages/Checkout/Checkout";
+
 import Chandeliers from "./pages/Chandeliers/Chandeliers";
 import WallLights from "./pages/WallLights/WallLights";
 import LightPanels from "./pages/LightPanels/LightPanels";
 import Decor from "./pages/Decor/Decor";
 import Plants from "./pages/Plants/Plants";
 import Accessories from "./pages/Accessories/Accessories";
+
 import Profile from "./pages/Profile/Profile";
-import Checkout from "./pages/Checkout/Checkout";
+
 function AppContent() {
   const location = useLocation();
 
@@ -44,10 +46,6 @@ function AppContent() {
 
         <Route path="/about" element={<About />} />
 
-        
-
-  
-
         <Route path="/register" element={<Register />} />
 
         <Route path="/login" element={<Login />} />
@@ -56,25 +54,60 @@ function AppContent() {
 
         <Route path="/our-cafe" element={<OurCafe />} />
 
-        <Route path="/chandeliers" element={<Chandeliers />} />
+        <Route
+          path="/chandeliers"
+          element={<Chandeliers />}
+        />
 
-        <Route path="/wall-lights" element={<WallLights />} />
+        <Route
+          path="/wall-lights"
+          element={<WallLights />}
+        />
 
-        <Route path="/light-panels" element={<LightPanels />} />
+        <Route
+          path="/light-panels"
+          element={<LightPanels />}
+        />
 
-        <Route path="/decor" element={<Decor />} />
+        <Route
+          path="/decor"
+          element={<Decor />}
+        />
 
-        <Route path="/plants" element={<Plants />} />
+        <Route
+          path="/plants"
+          element={<Plants />}
+        />
 
-        <Route path="/accessories" element={<Accessories />} />
+        <Route
+          path="/accessories"
+          element={<Accessories />}
+        />
 
-       <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={<Cart />}
+        />
 
-        <Route path="/reviews" element={<Reviews />} />
+        <Route
+          path="/wishlist"
+          element={<Wishlist />}
+        />
 
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/checkout"
+          element={<Checkout />}
+        />
 
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/reviews"
+          element={<Reviews />}
+        />
+
+        <Route
+          path="/profile"
+          element={<Profile />}
+        />
 
       </Routes>
 
@@ -85,11 +118,11 @@ function AppContent() {
 
 function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
-    </CartProvider>
+    <BrowserRouter>
+
+      <AppContent />
+
+    </BrowserRouter>
   );
 }
 

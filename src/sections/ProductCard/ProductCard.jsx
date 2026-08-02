@@ -1,9 +1,10 @@
 import "./ProductCard.css";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 import { useCart } from "../../context/CartContext";
+import { useWishlist } from "../../context/WishlistContext";
 
 function ProductCard({ product }) {
 
@@ -11,12 +12,25 @@ function ProductCard({ product }) {
 
   const { addToCart } = useCart();
 
-  const handleAddToCart = (e) => {
+  const {
+    addToWishlist,
+    removeFromWishlist,
+    isInWishlist,
+  } = useWishlist();
 
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    addToCart(product);
+  };
+
+  const handleWishlist = (e) => {
     e.stopPropagation();
 
-    addToCart(product);
-
+    if (isInWishlist(product.id)) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
   };
 
   return (
@@ -29,6 +43,15 @@ function ProductCard({ product }) {
           src={product.image}
           alt={product.name}
         />
+
+        <button
+          className={`wishlist-btn ${
+            isInWishlist(product.id) ? "active" : ""
+          }`}
+          onClick={handleWishlist}
+        >
+          <FaHeart />
+        </button>
 
         <div className="product-overlay">
 
@@ -64,7 +87,7 @@ function ProductCard({ product }) {
           <button
             className="cart-btn"
             onClick={handleAddToCart}
-            title="Add to Cart"
+            title="Add To Cart"
           >
             <FiShoppingCart />
           </button>
@@ -76,7 +99,6 @@ function ProductCard({ product }) {
     </div>
 
   );
-
 }
 
 export default ProductCard;
