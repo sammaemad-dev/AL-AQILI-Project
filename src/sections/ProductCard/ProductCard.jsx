@@ -3,9 +3,21 @@ import { FaStar } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
+import { useCart } from "../../context/CartContext";
+
 function ProductCard({ product }) {
 
   const navigate = useNavigate();
+
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (e) => {
+
+    e.stopPropagation();
+
+    addToCart(product);
+
+  };
 
   return (
 
@@ -37,8 +49,8 @@ function ProductCard({ product }) {
 
         <div className="rating">
 
-          {[...Array(product.rating)].map((_, i) => (
-            <FaStar key={i} />
+          {[...Array(product.rating)].map((_, index) => (
+            <FaStar key={index} />
           ))}
 
         </div>
@@ -46,15 +58,15 @@ function ProductCard({ product }) {
         <div className="bottom-row">
 
           <span className="price">
-
             EGP {product.price}
-
           </span>
 
-          <button className="cart-btn">
-
+          <button
+            className="cart-btn"
+            onClick={handleAddToCart}
+            title="Add to Cart"
+          >
             <FiShoppingCart />
-
           </button>
 
         </div>
