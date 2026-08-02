@@ -18,7 +18,7 @@ import Contact from "./pages/Contact/Contact";
 import OurCafe from "./pages/OurCafe/OurCafe";
 
 import Reviews from "./pages/Reviews/Reviews";
-
+import Cart from "./pages/Cart/Cart";
 import Chandeliers from "./pages/Chandeliers/Chandeliers";
 import WallLights from "./pages/WallLights/WallLights";
 import LightPanels from "./pages/LightPanels/LightPanels";
@@ -26,7 +26,7 @@ import Decor from "./pages/Decor/Decor";
 import Plants from "./pages/Plants/Plants";
 import Accessories from "./pages/Accessories/Accessories";
 import Profile from "./pages/Profile/Profile";
-
+import Checkout from "./pages/Checkout/Checkout";
 function AppContent() {
   const location = useLocation();
 
@@ -68,13 +68,13 @@ function AppContent() {
 
         <Route path="/accessories" element={<Accessories />} />
 
-      
+       <Route path="/cart" element={<Cart />} />
 
         <Route path="/reviews" element={<Reviews />} />
 
         <Route path="/profile" element={<Profile />} />
 
-        
+        <Route path="/checkout" element={<Checkout />} />
 
       </Routes>
 

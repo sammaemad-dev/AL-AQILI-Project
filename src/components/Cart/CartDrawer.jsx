@@ -1,5 +1,5 @@
 import "./CartDrawer.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Trash2 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 
@@ -10,6 +10,8 @@ function CartDrawer({ open, onClose }) {
     decreaseQuantity,
     removeFromCart,
   } = useCart();
+
+  const navigate = useNavigate();
 
   if (!open) return null;
 
@@ -23,28 +25,46 @@ function CartDrawer({ open, onClose }) {
       <div className="cart-overlay" onClick={onClose}></div>
 
       <div className="cart-drawer">
+
         {/* Header */}
         <div className="cart-header">
           <h2>Shopping Bag</h2>
 
-          <button className="close-btn" onClick={onClose}>
+          <button
+            className="close-btn"
+            onClick={onClose}
+          >
             ✕
           </button>
         </div>
 
         {/* Body */}
         <div className="cart-body">
+
           {cartItems.length === 0 ? (
+
             <p className="empty-cart">
               Your shopping bag is empty.
             </p>
+
           ) : (
+
             cartItems.map((item) => (
-              <div className="cart-item" key={item.id}>
-                <img src={item.image} alt={item.name} />
+
+              <div
+                className="cart-item"
+                key={item.id}
+              >
+
+                <img
+                  src={item.image}
+                  alt={item.name}
+                />
 
                 <div className="cart-info">
+
                   <div className="cart-top">
+
                     <h4>{item.name}</h4>
 
                     <button
@@ -54,6 +74,7 @@ function CartDrawer({ open, onClose }) {
                     >
                       <Trash2 size={18} />
                     </button>
+
                   </div>
 
                   <p className="cart-price">
@@ -61,6 +82,7 @@ function CartDrawer({ open, onClose }) {
                   </p>
 
                   <div className="quantity-box">
+
                     <button
                       type="button"
                       onClick={() => decreaseQuantity(item.id)}
@@ -76,23 +98,35 @@ function CartDrawer({ open, onClose }) {
                     >
                       +
                     </button>
+
                   </div>
+
                 </div>
+
               </div>
+
             ))
+
           )}
+
         </div>
 
         {/* Total */}
         {cartItems.length > 0 && (
+
           <div className="cart-total">
+
             <span>Total</span>
+
             <strong>EGP {total}</strong>
+
           </div>
+
         )}
 
         {/* Footer */}
         <div className="cart-footer">
+
           <Link
             to="/cart"
             className="view-cart-btn"
@@ -101,10 +135,18 @@ function CartDrawer({ open, onClose }) {
             View Cart
           </Link>
 
-          <button className="checkout-btn">
+          <button
+            className="checkout-btn"
+            onClick={() => {
+              onClose();
+              navigate("/checkout");
+            }}
+          >
             Checkout
           </button>
+
         </div>
+
       </div>
     </>
   );

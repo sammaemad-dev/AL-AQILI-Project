@@ -1,8 +1,14 @@
 import "./Cart.css";
+import { Link } from "react-router-dom";
 
 import { useCart } from "../../context/CartContext";
-
-import { Plus, Minus, Trash2, ShoppingBag } from "lucide-react";
+import {
+  Plus,
+  Minus,
+  Trash2,
+  ShoppingBag,
+  ArrowLeft,
+} from "lucide-react";
 
 function Cart() {
   const {
@@ -13,17 +19,18 @@ function Cart() {
     clearCart,
   } = useCart();
 
-  const total = cartItems.reduce(
+  const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
+  const shipping = subtotal > 0 ? 250 : 0;
+  const total = subtotal + shipping;
+
   if (cartItems.length === 0) {
     return (
       <section className="cart-page">
-
         <div className="empty-cart-box">
-
           <ShoppingBag size={70} strokeWidth={1.5} />
 
           <h2>Your Shopping Bag is Empty</h2>
@@ -32,8 +39,11 @@ function Cart() {
             Add your favorite lighting products and they will appear here.
           </p>
 
+          <Link to="/" className="continue-shopping">
+            <ArrowLeft size={18} />
+            Continue Shopping
+          </Link>
         </div>
-
       </section>
     );
   }
@@ -44,6 +54,10 @@ function Cart() {
       <div className="cart-container">
 
         <div className="cart-products">
+
+          <h2 className="cart-title">
+            Shopping Cart ({cartItems.length})
+          </h2>
 
           {cartItems.map((item) => (
 
@@ -62,7 +76,7 @@ function Cart() {
                 <h3>{item.name}</h3>
 
                 <span className="price">
-                  EGP {item.price}
+                  EGP {item.price.toLocaleString()}
                 </span>
 
                 <div className="quantity-box">
@@ -89,14 +103,22 @@ function Cart() {
 
               </div>
 
-              <button
-                className="delete-btn"
-                onClick={() =>
-                  removeFromCart(item.id)
-                }
-              >
-                <Trash2 size={20} />
-              </button>
+              <div className="item-right">
+
+                <span className="item-total">
+                  EGP {(item.price * item.quantity).toLocaleString()}
+                </span>
+
+                <button
+                  className="delete-btn"
+                  onClick={() =>
+                    removeFromCart(item.id)
+                  }
+                >
+                  <Trash2 size={20} />
+                </button>
+
+              </div>
 
             </div>
 
@@ -109,18 +131,32 @@ function Cart() {
           <h2>Order Summary</h2>
 
           <div className="summary-row">
+            <span>Subtotal</span>
+            <span>
+              EGP {subtotal.toLocaleString()}
+            </span>
+          </div>
 
+          <div className="summary-row">
+            <span>Shipping</span>
+            <span>
+              EGP {shipping.toLocaleString()}
+            </span>
+          </div>
+
+          <div className="summary-row total-row">
             <span>Total</span>
-
             <span>
               EGP {total.toLocaleString()}
             </span>
-
           </div>
 
-          <button className="checkout-btn">
-            Proceed To Checkout
-          </button>
+          <Link
+  to="/checkout"
+  className="checkout-btn"
+>
+  Proceed To Checkout
+</Link>
 
           <button
             className="clear-btn"
@@ -128,6 +164,14 @@ function Cart() {
           >
             Clear Cart
           </button>
+
+          <Link
+            to="/"
+            className="continue-shopping"
+          >
+            <ArrowLeft size={18} />
+            Continue Shopping
+          </Link>
 
         </div>
 

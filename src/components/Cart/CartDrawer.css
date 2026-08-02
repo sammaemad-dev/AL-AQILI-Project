@@ -18,11 +18,11 @@
   max-width: 100%;
   height: 100vh;
   background: #fff;
-  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
+  box-shadow: -12px 0 35px rgba(0, 0, 0, 0.12);
   z-index: 1000;
-  animation: drawerOpen 0.35s ease;
+  animation: drawerOpen .35s ease;
 }
 
 @keyframes drawerOpen {
@@ -41,13 +41,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px;
-  border-bottom: 1px solid #ececec;
+  padding: 22px 24px;
+  border-bottom: 1px solid #eee;
 }
 
 .cart-header h2 {
   margin: 0;
-  font-size: 28px;
+  font-size: 24px;
   font-family: Georgia, serif;
   color: #222;
 }
@@ -55,17 +55,18 @@
 .close-btn {
   width: 42px;
   height: 42px;
-  border: none;
+  border: 1px solid #eee;
   border-radius: 50%;
-  background: #f5f5f5;
-  font-size: 20px;
+  background: #fff;
+  font-size: 24px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .close-btn:hover {
   background: #C89B3C;
   color: #fff;
+  border-color: #C89B3C;
 }
 
 /* ================= Body ================= */
@@ -73,32 +74,35 @@
 .cart-body {
   flex: 1;
   overflow-y: auto;
-  padding: 25px;
+  padding: 16px;
 }
 
 .empty-cart {
-  margin-top: 120px;
   text-align: center;
+  margin-top: 100px;
   color: #888;
   font-size: 17px;
 }
 
-/* ================= Product ================= */
+/* ================= Product Card ================= */
 
 .cart-item {
   display: flex;
+  gap: 14px;
   align-items: flex-start;
-  gap: 18px;
-  padding: 22px 0;
-  border-bottom: 1px solid #eee;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.04);
 }
 
 .cart-item img {
-  width: 90px;
-  height: 90px;
+  width: 82px;
+  height: 82px;
+  border-radius: 12px;
   object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
   flex-shrink: 0;
 }
 
@@ -108,30 +112,25 @@
   flex-direction: column;
 }
 
-/* ===== اسم المنتج + الحذف ===== */
-
 .cart-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
 }
 
 .cart-top h4 {
   margin: 0;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 700;
   color: #222;
-  line-height: 1.3;
-  flex: 1;
 }
 
-/* ===== السعر ===== */
-
 .cart-price {
-  margin: 10px 0 18px;
+  margin: 8px 0 14px;
   color: #C89B3C;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -140,19 +139,19 @@
 .quantity-box {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
 }
 
 .quantity-box button {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   border: none;
-  border-radius: 12px;
-  background: #f5f5f5;
-  font-size: 24px;
+  border-radius: 10px;
+  background: #f7f7f7;
+  font-size: 22px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .quantity-box button:hover {
@@ -161,93 +160,103 @@
 }
 
 .quantity-box span {
-  min-width: 20px;
+  width: 18px;
   text-align: center;
-  font-size: 22px;
-  font-weight: 600;
-  color: #222;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 /* ================= Delete ================= */
 
 .delleete-btn {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border: none;
   border-radius: 50%;
-  background: #faf6ef;
+  background: #faf7ef;
   color: #C89B3C;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: 0.3s;
-  flex-shrink: 0;
+  transition: .3s;
 }
 
 .delleete-btn:hover {
   background: #d62828;
   color: #fff;
-  transform: scale(1.08);
 }
-
 /* ================= Total ================= */
 
 .cart-total {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 25px;
-  border-top: 1px solid #ececec;
-  font-size: 22px;
+  padding: 20px 18px;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+
+.cart-total span {
+  font-size: 18px;
   font-weight: 700;
+  color: #222;
 }
 
 .cart-total strong {
+  font-size: 18px;
+  font-weight: 700;
   color: #C89B3C;
 }
 
 /* ================= Footer ================= */
 
 .cart-footer {
-  padding: 25px;
-  border-top: 1px solid #ececec;
+  padding: 16px;
+  border-top: 1px solid #eee;
+  background: #fff;
+
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .view-cart-btn,
 .checkout-btn {
-  height: 56px;
+  height: 52px;
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   text-decoration: none;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
+
   cursor: pointer;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .view-cart-btn {
-  background: #f5f5f5;
+  background: #f6f6f6;
   color: #222;
 }
 
 .view-cart-btn:hover {
-  background: #e8e8e8;
+  background: #ececec;
 }
 
 .checkout-btn {
-  background: #C89B3C;
+  background: linear-gradient(90deg, #C89B3C, #D9A441);
   color: #fff;
+  box-shadow: 0 10px 20px rgba(200,155,60,.25);
 }
 
 .checkout-btn:hover {
-  background: #ab7d18;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(200,155,60,.35);
 }
 
 /* ================= Scroll ================= */
@@ -263,32 +272,68 @@
 
 /* ================= Responsive ================= */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
 
-  .cart-drawer {
-    width: 100%;
+  .cart-drawer{
+    width:100%;
   }
 
-  .cart-item img {
-    width: 75px;
-    height: 75px;
+  .cart-header{
+    padding:18px;
   }
 
-  .cart-top h4 {
-    font-size: 18px;
+  .cart-header h2{
+    font-size:22px;
   }
 
-  .cart-price {
-    font-size: 16px;
+  .cart-body{
+    padding:14px;
   }
 
-  .quantity-box button {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
+  .cart-item{
+    padding:12px;
+    gap:12px;
   }
 
-  .quantity-box span {
-    font-size: 18px;
+  .cart-item img{
+    width:78px;
+    height:78px;
+  }
+
+  .cart-top h4{
+    font-size:15px;
+  }
+
+  .cart-price{
+    font-size:15px;
+    margin:6px 0 12px;
+  }
+
+  .quantity-box{
+    gap:10px;
+  }
+
+  .quantity-box button{
+    width:32px;
+    height:32px;
+    font-size:18px;
+  }
+
+  .quantity-box span{
+    font-size:17px;
+  }
+
+  .cart-total{
+    padding:18px 16px;
+  }
+
+  .cart-footer{
+    padding:14px;
+  }
+
+  .view-cart-btn,
+  .checkout-btn{
+    height:50px;
+    font-size:16px;
   }
 }
