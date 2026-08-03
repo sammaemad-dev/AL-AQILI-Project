@@ -1,4 +1,5 @@
 import "./Sidebar.css";
+import { NavLink } from "react-router-dom";
 
 import {
   LayoutDashboard,
@@ -16,58 +17,52 @@ function Sidebar() {
     <aside className="sidebar">
 
       <div className="sidebar-logo">
-
         <h2>AL AQILI</h2>
-
         <span>Lighting Collection</span>
-
       </div>
 
       <nav>
 
-        <a href="#">
+        <NavLink to="/dashboard">
           <LayoutDashboard size={20} />
           Dashboard
-        </a>
+        </NavLink>
 
-        <a href="#">
+        <NavLink to="/dashboard/products">
           <Package size={20} />
           Products
-        </a>
+        </NavLink>
 
-        <a href="#">
+        <NavLink to="/dashboard/add-product">
           <PlusCircle size={20} />
           Add Product
-        </a>
+        </NavLink>
 
-        <a href="#">
+        <NavLink to="/dashboard/orders">
           <ShoppingCart size={20} />
           Orders
-        </a>
+        </NavLink>
 
-        <a href="#">
+        <NavLink to="/dashboard/customers">
           <Users size={20} />
           Customers
-        </a>
+        </NavLink>
 
-        <a href="#">
+        <NavLink to="/dashboard/reviews">
           <Star size={20} />
           Reviews
-        </a>
+        </NavLink>
 
-        <a href="#">
+        <NavLink to="/dashboard/settings">
           <Settings size={20} />
           Settings
-        </a>
+        </NavLink>
 
       </nav>
 
       <button className="logout-btn">
-
         <LogOut size={18} />
-
         Logout
-
       </button>
 
     </aside>

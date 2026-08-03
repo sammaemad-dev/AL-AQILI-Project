@@ -1,9 +1,18 @@
 import "./Dashboard.css";
 
+import { Routes, Route } from "react-router-dom";
+
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import StatsCard from "./components/StatsCard";
 import RecentOrders from "./components/RecentOrders";
+
+import Products from "./Products";
+import AddProduct from "./AddProduct";
+import Orders from "./Orders";
+import Customers from "./Customers";
+import Reviews from "./Reviews";
+import Settings from "./Settings";
 
 import {
   Package,
@@ -11,6 +20,44 @@ import {
   Users,
   DollarSign,
 } from "lucide-react";
+
+function DashboardHome() {
+  return (
+    <>
+      <Header />
+
+      <div className="stats-grid">
+
+        <StatsCard
+          title="Products"
+          value="128"
+          icon={<Package size={30} />}
+        />
+
+        <StatsCard
+          title="Orders"
+          value="54"
+          icon={<ShoppingBag size={30} />}
+        />
+
+        <StatsCard
+          title="Customers"
+          value="91"
+          icon={<Users size={30} />}
+        />
+
+        <StatsCard
+          title="Revenue"
+          value="EGP 25K"
+          icon={<DollarSign size={30} />}
+        />
+
+      </div>
+
+      <RecentOrders />
+    </>
+  );
+}
 
 function Dashboard() {
   return (
@@ -20,37 +67,23 @@ function Dashboard() {
 
       <div className="dashboard-main">
 
-        <Header />
+        <Routes>
 
-        <div className="stats-grid">
+          <Route path="/" element={<DashboardHome />} />
 
-          <StatsCard
-            title="Products"
-            value="128"
-            icon={<Package size={30} />}
-          />
+          <Route path="/products" element={<Products />} />
 
-          <StatsCard
-            title="Orders"
-            value="54"
-            icon={<ShoppingBag size={30} />}
-          />
+          <Route path="/add-product" element={<AddProduct />} />
 
-          <StatsCard
-            title="Customers"
-            value="91"
-            icon={<Users size={30} />}
-          />
+          <Route path="/orders" element={<Orders />} />
 
-          <StatsCard
-            title="Revenue"
-            value="EGP 25K"
-            icon={<DollarSign size={30} />}
-          />
+          <Route path="/customers" element={<Customers />} />
 
-        </div>
+          <Route path="/reviews" element={<Reviews />} />
 
-        <RecentOrders />
+          <Route path="/settings" element={<Settings />} />
+
+        </Routes>
 
       </div>
 

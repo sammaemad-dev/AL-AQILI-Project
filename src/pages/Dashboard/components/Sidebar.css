@@ -82,3 +82,8 @@
 .logout-btn:hover{
     background:#b88618;
 }
+.sidebar nav .active{
+    background:#f7f2e7;
+    color:#C99A2E;
+    font-weight:600;
+}
