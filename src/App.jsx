@@ -26,7 +26,7 @@ import LightPanels from "./pages/LightPanels/LightPanels";
 import Decor from "./pages/Decor/Decor";
 import Plants from "./pages/Plants/Plants";
 import Accessories from "./pages/Accessories/Accessories";
-
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Profile/Profile";
 
 function AppContent() {
@@ -34,7 +34,8 @@ function AppContent() {
 
   const hideLayout =
     location.pathname === "/login" ||
-    location.pathname === "/register";
+    location.pathname === "/register"||
+    location.pathname === "/dashboard"
 
   return (
     <>
@@ -78,7 +79,7 @@ function AppContent() {
           path="/plants"
           element={<Plants />}
         />
-
+<Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/accessories"
           element={<Accessories />}
