@@ -29,7 +29,7 @@ import Accessories from "./pages/Accessories/Accessories";
 
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Profile/Profile";
-
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
 function AppContent() {
   const location = useLocation();
 
@@ -64,6 +64,10 @@ function AppContent() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/profile" element={<Profile />} />
+        <Route
+  path="/product/:id"
+  element={<ProductDetails />}
+/>
 
         {/* Dashboard */}
         <Route path="/dashboard/*" element={<Dashboard />} />

@@ -1,0 +1,288 @@
+.reviews{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 50px;
+}
+
+/* عنوان القسم */
+.reviews h2{
+    font-size: 34px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* زر إضافة ريفيو */
+.add-review-btn{
+    width: fit-content;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    background: #D4A42B;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.add-review-btn:hover{
+    background: #b88918;
+    transform: translateY(-2px);
+}
+
+/* الكارد */
+.review-card{
+    background: #fafafa;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.review-card:hover{
+    transform: translateY(-5px);
+}
+
+.review-card h4{
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+/* النجوم */
+.stars{
+    display: flex;
+    gap: 4px;
+    color: #D4A42B;
+    margin-bottom: 12px;
+}
+
+/* النص */
+.review-card p{
+    color: #666;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* ================= Popup ================= */
+
+.popup-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-box{
+    width: 420px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 45px rgba(0,0,0,.2);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.popup-box h3{
+    text-align: center;
+    color: #D4A42B;
+    font-size: 28px;
+}
+
+.popup-box input,
+.popup-box textarea{
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    resize: none;
+}
+
+.popup-box textarea{
+    min-height: 120px;
+}
+
+/* اختيار النجوم */
+.star-picker{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.star-picker svg{
+    cursor: pointer;
+    transition: .2s;
+}
+
+.star-picker svg:hover{
+    transform: scale(1.2);
+}
+/* ================= Overlay ================= */
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+/* ================= Popup ================= */
+
+.popup{
+    width:500px;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.2);
+}
+
+/* ================= Close ================= */
+
+.close-btn{
+    position:absolute;
+    top:18px;
+    right:18px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:50%;
+    background:#f5f5f5;
+    cursor:pointer;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.close-btn:hover{
+    background:#D4A42B;
+    color:#fff;
+}
+
+/* ================= Title ================= */
+
+.popup h2{
+    text-align:center;
+    font-size:34px;
+    color:#222;
+    margin-bottom:10px;
+}
+
+/* ================= Inputs ================= */
+
+.popup input,
+.popup textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+    font-family:inherit;
+}
+
+.popup textarea{
+    min-height:130px;
+    resize:none;
+}
+
+/* ================= Stars ================= */
+
+.popup-stars{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.popup-stars svg{
+    cursor:pointer;
+    transition:.25s;
+}
+
+.popup-stars svg:hover{
+    transform:scale(1.2);
+}
+
+/* ================= Button ================= */
+
+.submit-review{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:10px;
+
+    background:#D4A42B;
+    color:white;
+
+    font-size:17px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-review:hover{
+    background:#b88918;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:600px){
+
+    .popup{
+        width:92%;
+        padding:25px;
+    }
+
+}
+.review-btn{
+    padding: 14px 30px;
+    border: none;
+    border-radius: 12px;
+
+    background: #D4A42B;
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 8px 20px rgba(212,164,43,.25);
+}
+
+.review-btn:hover{
+    background: #b88918;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(212,164,43,.35);
+}
+
+.review-btn:active{
+    transform: scale(.97);
+}
