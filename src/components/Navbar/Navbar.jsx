@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import logo from "../../assets/imagess/logo.png";
 import {
   Search,
   UserRound,
@@ -32,11 +32,22 @@ function Navbar() {
 
         {/* Logo */}
 
-        <div className="logo">
+        {/* <div className="logo">
           <h2>AL AQILI</h2>
           <p>LIGHTING</p>
-        </div>
+        </div> */}
+<Link to="/" className="logo">
+  <img
+    src={logo}
+    alt="AL AQILI Logo"
+    className="logo-img"
+  />
 
+  <div className="logo-text">
+    <h2>AL AQILI</h2>
+    <p>LIGHTING COLLECTION</p>
+  </div>
+</Link>
         {/* Hamburger */}
 
         <div
