@@ -117,7 +117,6 @@ Products
     gap:40px;
 
 }
-
 /* ==========================
 Filters
 ========================== */
@@ -126,7 +125,7 @@ Filters
 
     background:#fff;
 
-    border-radius:20px;
+    border-radius:22px;
 
     padding:30px;
 
@@ -134,17 +133,25 @@ Filters
 
     height:fit-content;
 
+    position:sticky;
+
+    top:110px;
+
 }
 
 .filters h3{
 
-    font-size:30px;
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:36px;
 
     color:#222;
 
-    margin-bottom:25px;
+    margin-bottom:30px;
 
-    font-family:"Cormorant Garamond",serif;
+    padding-bottom:15px;
+
+    border-bottom:1px solid #eee;
 
 }
 
@@ -152,17 +159,33 @@ Filters
 
     margin-bottom:35px;
 
+    padding-bottom:25px;
+
+    border-bottom:1px solid #f1f1f1;
+
+}
+
+.filter-box:last-child{
+
+    border:none;
+
+    margin-bottom:0;
+
 }
 
 .filter-box h4{
+
+    font-size:20px;
 
     color:#C99A2E;
 
     margin-bottom:18px;
 
-    font-size:20px;
+    font-weight:600;
 
 }
+
+/* Labels */
 
 .filter-box label{
 
@@ -172,11 +195,23 @@ Filters
 
     gap:12px;
 
-    margin-bottom:12px;
+    margin-bottom:14px;
 
     cursor:pointer;
 
     color:#444;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.filter-box label:hover{
+
+    color:#C99A2E;
+
+    transform:translateX(4px);
 
 }
 
@@ -190,11 +225,97 @@ Filters
 
 }
 
+/* Price */
+
+.price-value{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+    font-size:14px;
+
+    color:#777;
+
+}
+
 .filter-box input[type="range"]{
 
     width:100%;
 
     accent-color:#C99A2E;
+
+    cursor:pointer;
+
+}
+
+/* Rating */
+
+.rating-filter{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:12px;
+
+    cursor:pointer;
+
+    color:#C99A2E;
+
+    transition:.3s;
+
+}
+
+.rating-filter:hover{
+
+    transform:translateX(5px);
+
+}
+
+.rating-filter span{
+
+    color:#444;
+
+    font-size:15px;
+
+}
+
+/* Clear Button */
+
+.clear-filter-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#C99A2E;
+
+    color:#fff;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-top:10px;
+
+}
+
+.clear-filter-btn:hover{
+
+    background:#b88618;
+
+    transform:translateY(-2px);
 
 }
 
