@@ -281,3 +281,25 @@ grid-template-columns:1fr;
 }
 
 }
+.wish{
+    width:70px;
+    height:70px;
+    border:none;
+    border-radius:16px;
+    background:#f8f8f8;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.wish:hover{
+    transform:scale(1.05);
+}
+
+.wish.active{
+    background:#fff0f2;
+}
+
+.wish.active svg{
+    color:#e63946;
+    fill:#e63946;
+}
