@@ -26,7 +26,7 @@ import LightPanels from "./pages/LightPanels/LightPanels";
 import Decor from "./pages/Decor/Decor";
 import Plants from "./pages/Plants/Plants";
 import Accessories from "./pages/Accessories/Accessories";
-
+import Categoriesname from "./pages/Categories name/Categories name";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Profile/Profile";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
@@ -68,7 +68,10 @@ function AppContent() {
   path="/product/:id"
   element={<ProductDetails />}
 />
-
+<Route
+  path="/categories"
+  element={<Categoriesname />}
+/>
         {/* Dashboard */}
         <Route path="/dashboard/*" element={<Dashboard />} />
       </Routes>
