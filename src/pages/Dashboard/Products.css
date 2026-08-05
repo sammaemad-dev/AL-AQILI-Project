@@ -1,0 +1,202 @@
+.products-page{
+    padding:35px;
+}
+
+.products-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.products-header h1{
+    font-size:34px;
+    color:#222;
+}
+
+.products-header p{
+    color:#777;
+    margin-top:6px;
+}
+
+.add-product-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    border:none;
+    background:#C99A2E;
+    color:#fff;
+
+    padding:13px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+    transition:.3s;
+}
+
+.add-product-btn:hover{
+    background:#b88918;
+}
+
+.products-toolbar{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.search-box{
+    width:350px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:#fff;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.search-box input{
+    border:none;
+    outline:none;
+    width:100%;
+    font-size:15px;
+}
+
+.products-table{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.products-table table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.products-table th{
+
+    background:#f6f6f6;
+
+    padding:18px;
+
+    text-align:left;
+
+    color:#444;
+
+}
+
+.products-table td{
+
+    padding:18px;
+
+    border-top:1px solid #eee;
+
+}
+
+.products-table img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+.edit-btn,
+.delete-btn{
+
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    margin-right:10px;
+
+    transition:.3s;
+
+}
+
+.edit-btn{
+
+    background:#e9f7ef;
+
+    color:#28a745;
+
+}
+
+.edit-btn:hover{
+
+    background:#28a745;
+
+    color:#fff;
+
+}
+
+.delete-btn{
+
+    background:#fdecec;
+
+    color:#dc3545;
+
+}
+
+.delete-btn:hover{
+
+    background:#dc3545;
+
+    color:#fff;
+
+}
+
+@media(max-width:900px){
+
+.products-table{
+
+overflow:auto;
+
+}
+
+table{
+
+min-width:900px;
+
+}
+
+.search-box{
+
+width:100%;
+
+}
+
+.products-toolbar{
+
+flex-direction:column;
+
+}
+
+}

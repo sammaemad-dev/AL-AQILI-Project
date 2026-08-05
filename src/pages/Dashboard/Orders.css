@@ -1,0 +1,178 @@
+.orders-page{
+    padding:40px;
+    background:#f6f7fb;
+    min-height:100vh;
+}
+
+.orders-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.orders-header h1{
+    font-size:42px;
+    font-weight:700;
+    color:#222;
+    margin-bottom:8px;
+}
+
+.orders-header p{
+    font-size:18px;
+    color:#777;
+}
+
+.orders-search{
+    width:420px;
+    height:55px;
+    background:#fff;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:0 20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    margin-bottom:30px;
+}
+
+.orders-search svg{
+    color:#777;
+}
+
+.orders-search input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:16px;
+    background:transparent;
+}
+
+.orders-card{
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#fafafa;
+}
+
+th{
+    text-align:left;
+    padding:22px;
+    font-size:18px;
+    color:#333;
+}
+
+td{
+    padding:22px;
+    border-top:1px solid #eee;
+    font-size:16px;
+    color:#444;
+}
+
+tbody tr{
+    transition:.3s;
+}
+
+tbody tr:hover{
+    background:#fcfcfc;
+}
+
+.status{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.delivered{
+    background:#e7f8ec;
+    color:#1d9d58;
+}
+
+.pending{
+    background:#fff3d6;
+    color:#d49700;
+}
+
+.processing{
+    background:#e8f1ff;
+    color:#2563eb;
+}
+
+.cancelled{
+    background:#fde8e8;
+    color:#dc2626;
+}
+
+.view-btn{
+    width:44px;
+    height:44px;
+    border:none;
+    border-radius:12px;
+    background:#eef9f0;
+    color:#1d9d58;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.view-btn:hover{
+    background:#C99A2E;
+    color:#fff;
+}
+
+@media(max-width:992px){
+
+.orders-page{
+    padding:25px;
+}
+
+.orders-search{
+    width:100%;
+}
+
+.orders-card{
+    overflow-x:auto;
+}
+
+table{
+    min-width:850px;
+}
+
+}
+
+@media(max-width:600px){
+
+.orders-header h1{
+    font-size:32px;
+}
+
+.orders-header p{
+    font-size:15px;
+}
+
+.orders-search{
+    height:50px;
+}
+
+th,
+td{
+    padding:18px;
+    font-size:15px;
+}
+
+}

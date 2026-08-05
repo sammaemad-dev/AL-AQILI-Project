@@ -1,0 +1,339 @@
+.reviews-page{
+    padding:40px;
+    background:#f6f7fb;
+    min-height:100vh;
+}
+
+/* ================= Header ================= */
+
+.reviews-header{
+    margin-bottom:30px;
+}
+
+.reviews-header h1{
+    font-size:42px;
+    color:#222;
+    margin-bottom:8px;
+}
+
+.reviews-header p{
+    color:#777;
+    font-size:18px;
+}
+
+/* ================= Search ================= */
+
+.reviews-search{
+    width:420px;
+    height:55px;
+    background:#fff;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:0 20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    margin-bottom:30px;
+}
+
+.reviews-search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:16px;
+}
+
+/* ================= Reviews ================= */
+
+.reviews-list{
+    display:grid;
+    gap:25px;
+}
+
+.review-card{
+    background:#fff;
+    border-radius:22px;
+    padding:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
+}
+
+.review-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.customer{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.customer img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.customer h3{
+    margin:0;
+    color:#222;
+    font-size:28px;
+    font-weight:700;
+}
+
+.customer span{
+    display:block;
+    margin-top:4px;
+    color:#888;
+    font-size:15px;
+}
+
+/* ================= Stars ================= */
+
+.stars{
+    display:flex;
+    gap:5px;
+    color:#f6b100;
+    font-size:22px;
+}
+
+/* ================= Review Text ================= */
+
+.review-text{
+    color:#555;
+    line-height:1.8;
+    font-size:17px;
+    margin:25px 0;
+}
+
+/* ================= Buttons ================= */
+
+.review-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.approve-btn,
+.deletemy-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:none;
+    padding:14px 28px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.approve-btn{
+    background:#16a34a;
+    color:#fff;
+}
+
+.approve-btn:hover{
+    background:#15803d;
+}
+
+.deletemy-btn{
+    background:#ef4444;
+    color:#fff;
+}
+
+.deletemy-btn:hover{
+    background:#dc2626;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:768px){
+
+.reviews-page{
+    padding:20px;
+}
+
+.reviews-header h1{
+    font-size:32px;
+}
+
+.reviews-search{
+    width:100%;
+}
+
+.review-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+}
+
+.review-actions{
+    flex-direction:column;
+    width:100%;
+}
+
+.approve-btn,
+.deletemy-btn{
+    width:100%;
+}
+
+.customer h3{
+    font-size:22px;
+}
+
+.review-text{
+    font-size:15px;
+}
+
+}
+/* ================== Responsive ================== */
+
+@media (max-width:992px){
+
+.reviews-page{
+    padding:25px;
+}
+
+.reviews-search{
+    width:100%;
+}
+
+.review-card{
+    padding:20px;
+}
+
+.review-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+}
+
+.stars{
+    margin-left:75px;
+}
+
+.review-text{
+    margin:20px 0;
+}
+
+.review-actions{
+    display:flex;
+    gap:15px;
+}
+
+.approve-btn,
+.delete-btn{
+    flex:1;
+    justify-content:center;
+}
+
+}
+
+@media (max-width:768px){
+
+.reviews-page{
+    padding:18px;
+}
+
+.reviews-header h1{
+    font-size:32px;
+}
+
+.reviews-header p{
+    font-size:15px;
+}
+
+.review-card{
+    padding:18px;
+}
+
+.customer{
+    align-items:flex-start;
+}
+
+.customer img{
+    width:55px;
+    height:55px;
+}
+
+.customer h3{
+    font-size:24px;
+}
+
+.review-text{
+    font-size:15px;
+    text-align:left;
+}
+
+.review-actions{
+    flex-direction:column;
+}
+
+.approve-btn,
+.delete-btn{
+    width:100%;
+    height:52px;
+    justify-content:center;
+}
+
+.stars{
+    margin-left:0;
+}
+
+}
+
+@media (max-width:480px){
+
+.reviews-page{
+    padding:12px;
+}
+
+.reviews-search{
+    height:50px;
+    padding:0 15px;
+}
+
+.customer{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.customer img{
+    width:70px;
+    height:70px;
+}
+
+.customer h3{
+    font-size:22px;
+}
+
+.customer span{
+    font-size:14px;
+}
+
+.review-top{
+    align-items:center;
+}
+
+.stars{
+    justify-content:center;
+}
+
+.review-text{
+    text-align:center;
+    font-size:14px;
+}
+
+.approve-btn,
+.delete-btn{
+    font-size:15px;
+}
+
+}

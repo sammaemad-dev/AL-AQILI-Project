@@ -1,0 +1,182 @@
+.customers-page{
+    padding:40px;
+    background:#f6f7fb;
+    min-height:100vh;
+}
+
+.customers-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.customers-header h1{
+    font-size:42px;
+    font-weight:700;
+    color:#222;
+    margin-bottom:8px;
+}
+
+.customers-header p{
+    font-size:18px;
+    color:#777;
+}
+
+.customers-search{
+    width:420px;
+    height:55px;
+    background:#fff;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:0 20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    margin-bottom:30px;
+}
+
+.customers-search svg{
+    color:#777;
+}
+
+.customers-search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:16px;
+}
+
+.customers-card{
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#fafafa;
+}
+
+th{
+    text-align:left;
+    padding:22px;
+    color:#333;
+    font-size:17px;
+    font-weight:600;
+}
+
+td{
+    padding:20px 22px;
+    border-top:1px solid #eee;
+    font-size:15px;
+    color:#444;
+    vertical-align:middle;
+}
+
+tbody tr{
+    transition:.3s;
+}
+
+tbody tr:hover{
+    background:#fcfcfc;
+}
+
+.customer-info{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.customer-info img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.customer-info span{
+    font-weight:600;
+    color:#222;
+}
+
+td svg{
+    width:16px;
+    height:16px;
+    color:#C99A2E;
+    margin-right:8px;
+    vertical-align:middle;
+}
+
+.view-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:12px;
+    background:#eef9f0;
+    color:#1d9d58;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
+}
+
+.view-btn:hover{
+    background:#C99A2E;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+@media(max-width:992px){
+
+.customers-page{
+    padding:25px;
+}
+
+.customers-search{
+    width:100%;
+}
+
+.customers-card{
+    overflow-x:auto;
+}
+
+table{
+    min-width:900px;
+}
+
+}
+
+@media(max-width:600px){
+
+.customers-header h1{
+    font-size:32px;
+}
+
+.customers-header p{
+    font-size:15px;
+}
+
+.customers-search{
+    height:50px;
+}
+
+.customer-info img{
+    width:42px;
+    height:42px;
+}
+
+th,
+td{
+    padding:18px;
+    font-size:14px;
+}
+
+}

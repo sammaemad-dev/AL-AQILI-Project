@@ -33,7 +33,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 function AppContent() {
   const location = useLocation();
 
-  // أخفي الـ Navbar والـ Footer في صفحات الأدمن
+ 
   const hideLayout =
     location.pathname === "/login" ||
     location.pathname === "/register" ||
