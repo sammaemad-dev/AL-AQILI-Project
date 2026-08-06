@@ -69,7 +69,7 @@ function About() {
           </div>
 
           <Link
-            to="/contact"
+            to="/categories"
             className="learn-btn"
           >
             Explore Collection →
