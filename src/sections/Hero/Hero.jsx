@@ -62,12 +62,12 @@ export default function Hero() {
 
               <p>{slide.desc}</p>
 
-              <div className="buttons">
-                <button className="goldBtn">
+              <div className="buttonss">
+                <button className="goldBttn">
                   Explore Collection
                 </button>
 
-                <button className="whiteBtn">
+                <button className="whiteBttn">
                   View Catalog
                 </button>
               </div>

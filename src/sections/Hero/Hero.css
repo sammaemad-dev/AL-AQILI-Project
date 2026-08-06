@@ -112,7 +112,7 @@
 
 }
 
-.buttons{
+.buttonss{
 
     display:flex;
 
@@ -120,7 +120,7 @@
 
 }
 
-.goldBtn{
+.goldBttn{
 
     padding:18px 35px;
 
@@ -136,7 +136,7 @@
 
 }
 
-.whiteBtn{
+.whiteBttn{
 
     padding:18px 35px;
 
@@ -150,13 +150,13 @@
 
 }
 
-.goldBtn:hover{
+.goldBttn:hover{
 
     background:#a97914;
 
 }
 
-.whiteBtn:hover{
+.whiteBttn:hover{
 
     background:#c89b3c;
 
@@ -275,7 +275,7 @@ margin:20px auto;
 
 }
 
-.buttons{
+.buttonss{
 
 flex-direction:column;
 
@@ -283,8 +283,8 @@ align-items:center;
 
 }
 
-.goldBtn,
-.whiteBtn{
+.goldBttn,
+.whiteBttn{
 
 width:230px;
 
