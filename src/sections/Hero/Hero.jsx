@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -17,25 +18,27 @@ const slides = [
     className: "hero1",
     title1: "Luxury Lighting",
     title2: "Collection",
-    desc: "Transform your space with elegant chandeliers, illuminated decor, and premium lighting solutions."
+    desc: "Transform your space with elegant chandeliers, illuminated decor, and premium lighting solutions.",
   },
   {
     image: hero2,
     className: "hero2",
     title1: "Modern",
     title2: "Lighting",
-    desc: "Premium luxury lighting for modern homes."
+    desc: "Premium luxury lighting for modern homes.",
   },
   {
     image: hero3,
     className: "hero3",
     title1: "Elegant",
     title2: "Design",
-    desc: "Create your dream interior with luxury chandeliers."
-  }
+    desc: "Create your dream interior with luxury chandeliers.",
+  },
 ];
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -63,16 +66,21 @@ export default function Hero() {
               <p>{slide.desc}</p>
 
               <div className="buttonss">
-                <button className="goldBttn">
+                <button
+                  className="goldBttn"
+                  onClick={() => navigate("/categories")}
+                >
                   Explore Collection
                 </button>
 
-                <button className="whiteBttn">
+                <button
+                  className="whiteBttn"
+                  onClick={() => navigate("/chandeliers")}
+                >
                   View Catalog
                 </button>
               </div>
             </div>
-
           </div>
         </SwiperSlide>
       ))}
