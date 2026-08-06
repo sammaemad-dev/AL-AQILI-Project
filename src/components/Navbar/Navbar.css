@@ -340,7 +340,7 @@
 
 /* ================= Small Mobile ================= */
 
-@media(max-width:480px){
+/* @media(max-width:480px){
 
 .navbar{
     height:70px;
@@ -383,4 +383,27 @@
     gap:20px;
 }
 
+} */
+
+
+@media (max-width:768px){
+    .navbar{
+        padding:0 10px !important;
+    }
+
+    .logo{
+        min-width:0 !important;
+    }
+
+    .logo-text{
+        overflow:hidden;
+    }
+
+    .logo h2{
+        font-size:18px !important;
+    }
+
+    .logo p{
+        font-size:8px !important;
+    }
 }
