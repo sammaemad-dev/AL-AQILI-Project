@@ -5,7 +5,6 @@ import { useState } from "react";
 import ProductCard from "../../sections/ProductCard/ProductCard";
 
 function Chandeliers() {
-
   const [products] = useState([
     {
       id: 1,
@@ -14,6 +13,7 @@ function Chandeliers() {
       image:
         "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700",
       rating: 5,
+      category: "Crystal",
     },
     {
       id: 2,
@@ -22,6 +22,7 @@ function Chandeliers() {
       image:
         "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=700",
       rating: 5,
+      category: "Modern",
     },
     {
       id: 3,
@@ -30,6 +31,7 @@ function Chandeliers() {
       image:
         "https://images.unsplash.com/photo-1494526585095-c41746248156?w=700",
       rating: 4,
+      category: "Crystal",
     },
     {
       id: 4,
@@ -38,6 +40,7 @@ function Chandeliers() {
       image:
         "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=700",
       rating: 5,
+      category: "Classic",
     },
     {
       id: 5,
@@ -46,6 +49,7 @@ function Chandeliers() {
       image:
         "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700",
       rating: 5,
+      category: "Modern",
     },
     {
       id: 6,
@@ -54,12 +58,37 @@ function Chandeliers() {
       image:
         "https://images.unsplash.com/photo-1494526585095-c41746248156?w=700",
       rating: 4,
+      category: "Modern",
     },
   ]);
 
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
+  const [sort, setSort] = useState("default");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+
+  const filteredProducts = products
+    .filter((item) =>
+      item.name.toLowerCase().includes(search.toLowerCase())
+    )
+    .filter((item) =>
+      category === "All" ? true : item.category === category
+    )
+    .filter((item) =>
+      minPrice === "" ? true : item.price >= Number(minPrice)
+    )
+    .filter((item) =>
+      maxPrice === "" ? true : item.price <= Number(maxPrice)
+    )
+    .sort((a, b) => {
+      if (sort === "low") return a.price - b.price;
+      if (sort === "high") return b.price - a.price;
+      return 0;
+    });
+
   return (
     <section className="chandeliers">
-
       <div
         className="page-banner"
         style={{
@@ -79,133 +108,133 @@ function Chandeliers() {
       </div>
 
       <div className="products-container">
-
-        {/* ================= Filters ================= */}
-
         <aside className="filters">
 
-          <h3>Filters</h3>
-
-          {/* Category */}
+          {/* <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div> */}
 
           <div className="filter-box">
-
-            <h4>Category</h4>
+            <h4>Categories</h4>
 
             <label>
-              <input type="checkbox" />
-              Chandeliers
+              <input
+                type="radio"
+                checked={category === "All"}
+                onChange={() => setCategory("All")}
+              />
+              All
             </label>
 
             <label>
-              <input type="checkbox" />
-              Wall Lights
+              <input
+                type="radio"
+                checked={category === "Crystal"}
+                onChange={() => setCategory("Crystal")}
+              />
+              Crystal
             </label>
 
             <label>
-              <input type="checkbox" />
-              Light Panels
+              <input
+                type="radio"
+                checked={category === "Modern"}
+                onChange={() => setCategory("Modern")}
+              />
+              Modern
             </label>
 
             <label>
-              <input type="checkbox" />
-              Decor
+              <input
+                type="radio"
+                checked={category === "Classic"}
+                onChange={() => setCategory("Classic")}
+              />
+              Classic
             </label>
-
-            <label>
-              <input type="checkbox" />
-              Plants
-            </label>
-
-            <label>
-              <input type="checkbox" />
-              Accessories
-            </label>
-
           </div>
 
-          {/* Price */}
-
           <div className="filter-box">
-
-            <h4>Price</h4>
+            <h4>Price Range</h4>
 
             <input
-              type="range"
-              min="1000"
-              max="10000"
+              type="number"
+              placeholder="Min Price"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
             />
 
-            <div className="price-values">
-
-              <span>EGP 1,000</span>
-
-              <span>EGP 10,000</span>
-
-            </div>
-
+            <input
+              type="number"
+              placeholder="Max Price"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+            />
           </div>
-
-          {/* Rating */}
 
           <div className="filter-box">
+            <h4>Sort By</h4>
 
-            <h4>Rating</h4>
-
-            <label>
-              <input type="checkbox" />
-              ⭐⭐⭐⭐⭐
-            </label>
-
-            <label>
-              <input type="checkbox" />
-              ⭐⭐⭐⭐ & Up
-            </label>
-
-            <label>
-              <input type="checkbox" />
-              ⭐⭐⭐ & Up
-            </label>
-
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+            >
+              <option value="default">Default</option>
+              <option value="low">Price: Low To High</option>
+              <option value="high">Price: High To Low</option>
+            </select>
           </div>
 
-          {/* Availability */}
-
-          <div className="filter-box">
-
-            <h4>Availability</h4>
-
-            <label>
-              <input type="checkbox" />
-              In Stock
-            </label>
-
-            <label>
-              <input type="checkbox" />
-              Out of Stock
-            </label>
-
-          </div>
+          <button
+            className="clear-btn"
+            onClick={() => {
+              setSearch("");
+              setCategory("All");
+              setSort("default");
+              setMinPrice("");
+              setMaxPrice("");
+            }}
+          >
+            Clear All Filters
+          </button>
 
         </aside>
 
-        {/* ================= Products ================= */}
+       <div className="products-section">
 
-        <div className="products-grid">
+  <div className="products-header">
 
-          {products.map((product) => (
+    <div className="search-box">
+      <input
+        type="text"
+        placeholder="Search luxury lighting..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+    </div>
+{/* 
+    <span className="products-count">
+      {filteredProducts.length} Products
+    </span> */}
 
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
+  </div>
 
-          ))}
+  <div className="products-grid">
+    {filteredProducts.map((product) => (
+      <ProductCard
+        key={product.id}
+        product={product}
+      />
+    ))}
+  </div>
 
-        </div>
-
+</div>
       </div>
-
     </section>
   );
 }
