@@ -2,6 +2,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../assets/imagess/logo.png";
+import { useAuth } from "../../context/AuthContext";
 import {
   Search,
   UserRound,
@@ -12,12 +13,25 @@ import {
 import { useCart } from "../../context/CartContext";
 import CartDrawer from "../Cart/CartDrawer";
 
+// function Navbar() {
+//   const [menuOpen, setMenuOpen] = useState(false);
+//   const [openCart, setOpenCart] = useState(false);
+
+//   // const token = localStorage.getItem("token");
+//   // const isLoggedIn = !!token;
+// const { isLoggedIn } = useAuth();
+//   const { cartItems } = useCart();
+
+//   const cartCount = cartItems.reduce(
+//     (total, item) => total + item.quantity,
+//     0
+//   );
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openCart, setOpenCart] = useState(false);
 
-  const token = localStorage.getItem("token");
-  const isLoggedIn = !!token;
+  const { isLoggedIn } = useAuth();
 
   const { cartItems } = useCart();
 

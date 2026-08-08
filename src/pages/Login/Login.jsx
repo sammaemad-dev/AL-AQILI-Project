@@ -1,36 +1,63 @@
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { login } from "../../services/authService";
+import { useAuth } from "../../context/AuthContext";
 
 function Login() {
   const navigate = useNavigate();
+  const { loginUser } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Login تجريبي
-    if (email.trim() && password.trim()) {
-      localStorage.setItem("token", "demo-token");
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          name: "Basmallah",
-          email,
-        })
-      );
+    try {
+      setLoading(true);
 
-      navigate("/");
-      window.location.reload();
-    } else {
-      alert("Please enter your email and password.");
+      const loginData = {
+        email: email.trim(),
+        password,
+      };
+
+      const user = await login(loginData);
+
+      // Save logged-in user in AuthContext + localStorage
+      loginUser(user);
+
+      alert("Login successful!");
+
+      // Admin
+      if (user.role === "Admin") {
+        navigate("/dashboard");
+      }
+
+      // Customer
+      else {
+        navigate("/");
+      }
+
+    } catch (error) {
+      console.error("Login Error:", error);
+
+      const message =
+        error.response?.data?.message ||
+        "Invalid email or password.";
+
+      alert(message);
+
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <section className="login-page">
+
       <div className="login-card">
 
         <div className="login-logo">
@@ -49,6 +76,7 @@ function Login() {
 
           <div className="input-group">
             <label>Email</label>
+
             <input
               type="email"
               placeholder="Enter your email"
@@ -60,6 +88,7 @@ function Login() {
 
           <div className="input-group">
             <label>Password</label>
+
             <input
               type="password"
               placeholder="Enter your password"
@@ -69,18 +98,26 @@ function Login() {
             />
           </div>
 
-          <button type="submit" className="login-submit-btn">
-            Login
+          <button
+            type="submit"
+            className="login-submit-btn"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
           </button>
 
         </form>
 
         <div className="login-footer">
           Don't have an account?
-          <Link to="/register"> Register</Link>
+
+          <Link to="/register">
+            Register
+          </Link>
         </div>
 
       </div>
+
     </section>
   );
 }
