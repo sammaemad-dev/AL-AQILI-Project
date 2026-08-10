@@ -78,8 +78,9 @@ function Navbar() {
         <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
 
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
            <li>
-  <Link to="/categories">Categories</Link>
+  <Link to="/categories">Products</Link>
 </li>
           {/* <li><Link to="/chandeliers">Chandeliers</Link></li>
           <li><Link to="/wall-lights">Wall Lights</Link></li>
@@ -87,7 +88,7 @@ function Navbar() {
           <li><Link to="/decor">Decor</Link></li>
           <li><Link to="/plants">Plants</Link></li>
           <li><Link to="/accessories">Accessories</Link></li> */}
-          <li><Link to="/about">About</Link></li>
+          
           <li><Link to="/contact">Contact</Link></li>
 
           {!isLoggedIn ? (

@@ -54,7 +54,7 @@ export default function Hero() {
             className={`hero ${slide.className}`}
             style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="overlay"></div>
+            <div className="Herooverlay"></div>
 
             <div className="heroContent">
               <h1>{slide.title1}</h1>
@@ -77,7 +77,7 @@ export default function Hero() {
                   className="whiteBttn"
                   onClick={() => navigate("/chandeliers")}
                 >
-                  View Catalog
+                  Order Now
                 </button>
               </div>
             </div>

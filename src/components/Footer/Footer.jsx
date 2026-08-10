@@ -78,7 +78,7 @@ function Footer() {
 
         <div className="footer-col">
 
-          <h3>Categories</h3>
+          <h3>Products</h3>
 
           <Link to="/chandeliers">Chandeliers</Link>
 
