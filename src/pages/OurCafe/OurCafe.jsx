@@ -8,20 +8,18 @@ function OurCafe() {
 
       <section className="our-cafe">
 
-        <h4>VISIT US</h4>
+        <h1>Visit AL AQILI</h1>
 
-        <h1>Find Veloura Cafe</h1>
-
-        <p>
-          We'd love to welcome you to Veloura. Visit us for handcrafted
-          coffee, cozy vibes, and unforgettable moments.
-        </p>
-
+<p>
+  We'd love to welcome you to AL AQILI.
+  Discover our premium lighting collection and
+  find the perfect lighting for your space.
+</p>
         <div className="info-boxes">
 
           <div className="box">
             <h3>📍 Address</h3>
-            <p>Downtown, Cairo, Egypt</p>
+            <p>Downtown, Beni Suef, Egypt</p>
           </div>
 
           <div className="box">
