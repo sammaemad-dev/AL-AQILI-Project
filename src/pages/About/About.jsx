@@ -69,10 +69,10 @@ function About() {
           </div>
 
           <Link
-            to="/categories"
+            to="/our-cafe"
             className="learn-btn"
           >
-            Explore Collection →
+            Explore location →
           </Link>
 
         </div>

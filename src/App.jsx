@@ -26,14 +26,16 @@ import LightPanels from "./pages/LightPanels/LightPanels";
 import Decor from "./pages/Decor/Decor";
 import Plants from "./pages/Plants/Plants";
 import Accessories from "./pages/Accessories/Accessories";
+
 import Categoriesname from "./pages/Categories name/Categories name";
+
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Profile/Profile";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+
 function AppContent() {
   const location = useLocation();
 
- 
   const hideLayout =
     location.pathname === "/login" ||
     location.pathname === "/register" ||
@@ -44,13 +46,20 @@ function AppContent() {
       {!hideLayout && <Navbar />}
 
       <Routes>
+        {/* ================= Home ================= */}
         <Route path="/" element={<Home />} />
 
+        {/* ================= Main Pages ================= */}
         <Route path="/about" element={<About />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/our-cafe" element={<OurCafe />} />
+
+        {/* ================= Authentication ================= */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* ================= Categories ================= */}
+        <Route path="/categories" element={<Categoriesname />} />
 
         <Route path="/chandeliers" element={<Chandeliers />} />
         <Route path="/wall-lights" element={<WallLights />} />
@@ -59,21 +68,28 @@ function AppContent() {
         <Route path="/plants" element={<Plants />} />
         <Route path="/accessories" element={<Accessories />} />
 
+        {/* ================= Products ================= */}
+        <Route
+          path="/product/:id"
+          element={<ProductDetails />}
+        />
+
+        {/* ================= Shopping ================= */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/checkout" element={<Checkout />} />
+
+        {/* ================= Reviews ================= */}
         <Route path="/reviews" element={<Reviews />} />
+
+        {/* ================= Profile ================= */}
         <Route path="/profile" element={<Profile />} />
+
+        {/* ================= Dashboard ================= */}
         <Route
-  path="/product/:id"
-  element={<ProductDetails />}
-/>
-<Route
-  path="/categories"
-  element={<Categoriesname />}
-/>
-        {/* Dashboard */}
-        <Route path="/dashboard/*" element={<Dashboard />} />
+          path="/dashboard/*"
+          element={<Dashboard />}
+        />
       </Routes>
 
       {!hideLayout && <Footer />}
