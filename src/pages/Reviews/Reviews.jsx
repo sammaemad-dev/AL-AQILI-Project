@@ -1,69 +1,107 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Reviews.css";
 
-const initialReviews = [
-  {
-    id: 1,
-    name: "Sarah L.",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    review:
-      "The coffee quality exceeded my expectations. Every cup is crafted with care and the atmosphere is absolutely relaxing.",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "John H.",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    review:
-      "Veloura Café has become my favorite place. The espresso is rich, smooth, and the service is outstanding.",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Emily S.",
-    image: "https://randomuser.me/api/portraits/women/65.jpg",
-    review:
-      "Beautiful interior, premium coffee, and friendly staff. Every visit feels luxurious and comfortable.",
-    rating: 5,
-  },
-];
+import { useAuth } from "../../hooks/useAuth";
+import {
+  getReviews,
+  createReview,
+  deleteReview,
+} from "../../services/reviewService";
 
 export default function Reviews() {
-  const [reviews, setReviews] = useState(initialReviews);
+  const { isLoggedIn } = useAuth();
 
-  const [name, setName] = useState("");
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(5);
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  useEffect(() => {
+    let isMounted = true;
 
-    if (!name.trim() || !review.trim()) return;
+    const loadReviews = async () => {
+      try {
+        setLoading(true);
+        setError("");
 
-    const newReview = {
-      id: Date.now(),
-      name,
-      review,
-      rating,
-      image: `https://ui-avatars.com/api/?name=${encodeURIComponent(
-        name
-      )}&background=d4a373&color=fff`,
+        // No productId -> these are general, site-wide reviews.
+        const data = await getReviews({});
+
+        if (isMounted) setReviews(data);
+      } catch (err) {
+        console.error("Get Reviews Error:", err);
+
+        if (isMounted) {
+          setError(
+            err.response?.data?.message || "Failed to load reviews."
+          );
+        }
+      } finally {
+        if (isMounted) setLoading(false);
+      }
     };
 
-    setReviews([newReview, ...reviews]);
+    loadReviews();
 
-    setName("");
-    setReview("");
-    setRating(5);
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!isLoggedIn) {
+      setFormError("Please log in to leave a review.");
+      return;
+    }
+
+    if (!review.trim()) return;
+
+    try {
+      setSubmitting(true);
+      setFormError("");
+
+      const created = await createReview({
+        productId: null,
+        rating,
+        comment: review.trim(),
+      });
+
+      setReviews([created, ...reviews]);
+
+      setReview("");
+      setRating(5);
+    } catch (err) {
+      console.error("Create Review Error:", err);
+
+      setFormError(
+        err.response?.data?.message || "Failed to submit review."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
-  function handleDelete(id) {
+  async function handleDelete(id) {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this review?"
     );
 
-    if (confirmDelete) {
+    if (!confirmDelete) return;
+
+    try {
+      await deleteReview(id);
       setReviews(reviews.filter((item) => item.id !== id));
+    } catch (err) {
+      console.error("Delete Review Error:", err);
+      alert(
+        err.response?.data?.message || "Failed to delete review."
+      );
     }
   }
 
@@ -75,40 +113,50 @@ export default function Reviews() {
       </p>
 
       <h1 className="reviews-title">
-        Reviews About Veloura Café
+        Customer Reviews
       </h1>
 
       <div className="reviews-container">
 
-        {reviews.map((item) => (
+        {loading ? (
+          <p>Loading reviews...</p>
+        ) : error ? (
+          <p style={{ color: "#c0392b" }}>{error}</p>
+        ) : reviews.length === 0 ? (
+          <p>No reviews yet. Be the first to share your experience.</p>
+        ) : (
+          reviews.map((item) => (
 
-          <div className="review-card" key={item.id}>
+            <div className="review-card" key={item.id}>
 
-            <button
-              className="delete-btn"
-              onClick={() => handleDelete(item.id)}
-            >
-              🗑
-            </button>
+              <button
+                className="delete-btn"
+                onClick={() => handleDelete(item.id)}
+              >
+                🗑
+              </button>
 
-            <img
-              src={item.image}
-              alt={item.name}
-              className="review-image"
-            />
+              <img
+                src={`https://ui-avatars.com/api/?name=${encodeURIComponent(
+                  item.name
+                )}&background=d4a373&color=fff`}
+                alt={item.name}
+                className="review-image"
+              />
 
-            <h2>{item.name}</h2>
+              <h2>{item.name}</h2>
 
-            <p>{item.review}</p>
+              <p>{item.review}</p>
 
-            <div className="review-stars">
-              {"★".repeat(item.rating)}
-              {"☆".repeat(5 - item.rating)}
+              <div className="review-stars">
+                {"★".repeat(item.rating)}
+                {"☆".repeat(5 - item.rating)}
+              </div>
+
             </div>
 
-          </div>
-
-        ))}
+          ))
+        )}
 
       </div>
 
@@ -118,14 +166,17 @@ export default function Reviews() {
 
         <h2>Share Your Experience</h2>
 
-        <form onSubmit={handleSubmit}>
+        {!isLoggedIn && (
+          <p style={{ color: "#c0392b" }}>
+            Please log in to leave a review.
+          </p>
+        )}
 
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+        {formError && (
+          <p style={{ color: "#c0392b" }}>{formError}</p>
+        )}
+
+        <form onSubmit={handleSubmit}>
 
           <textarea
             placeholder="Write your review..."
@@ -138,7 +189,7 @@ export default function Reviews() {
 
             <span>Rating:</span>
 
-            {[1,2,3,4,5].map((star)=>(
+            {[1, 2, 3, 4, 5].map((star) => (
               <button
                 key={star}
                 type="button"
@@ -147,7 +198,7 @@ export default function Reviews() {
                     ? "star active-star"
                     : "star"
                 }
-                onClick={()=>setRating(star)}
+                onClick={() => setRating(star)}
               >
                 ★
               </button>
@@ -158,8 +209,9 @@ export default function Reviews() {
           <button
             type="submit"
             className="submit-review-btn"
+            disabled={submitting}
           >
-            Submit Review
+            {submitting ? "Submitting..." : "Submit Review"}
           </button>
 
         </form>

@@ -3,68 +3,13 @@ import banner from "../../assets/categories/decor.jpg";
 
 import { useState } from "react";
 import ProductCard from "../../sections/ProductCard/ProductCard";
+import { useCategoryProducts } from "../../hooks/useCategoryProducts";
 
 
 function Chandeliers() {
-  const [products] = useState([
-    {
-      id: 1,
-      name: "Royal Crystal Chandelier",
-      price: 5200,
-      image:
-        "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700",
-      rating: 5,
-      category: "Crystal",
-    },
-    {
-      id: 2,
-      name: "Golden Luxury Chandelier",
-      price: 7100,
-      image:
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=700",
-      rating: 5,
-      category: "Modern",
-    },
-    {
-      id: 3,
-      name: "Classic Crystal",
-      price: 4600,
-      image:
-        "https://images.unsplash.com/photo-1494526585095-c41746248156?w=700",
-      rating: 4,
-      category: "Crystal",
-    },
-    {
-      id: 4,
-      name: "Premium Ceiling Light",
-      price: 6900,
-      image:
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=700",
-      rating: 5,
-      category: "Classic",
-    },
-    {
-      id: 5,
-      name: "Luxury Gold",
-      price: 8300,
-      image:
-        "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700",
-      rating: 5,
-      category: "Modern",
-    },
-    {
-      id: 6,
-      name: "Modern Crystal",
-      price: 5900,
-      image:
-        "https://images.unsplash.com/photo-1494526585095-c41746248156?w=700",
-      rating: 4,
-      category: "Modern",
-    },
-  ]);
+  const { products, loading, error } = useCategoryProducts("Decor");
 
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("All");
   const [sort, setSort] = useState("default");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -72,9 +17,6 @@ function Chandeliers() {
   const filteredProducts = products
     .filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase())
-    )
-    .filter((item) =>
-      category === "All" ? true : item.category === category
     )
     .filter((item) =>
       minPrice === "" ? true : item.price >= Number(minPrice)
@@ -121,46 +63,6 @@ Discover timeless decorative pieces designed to complete your living space.
           </div> */}
 
           <div className="filter-box">
-            <h4>Categories</h4>
-
-            <label>
-              <input
-                type="radio"
-                checked={category === "All"}
-                onChange={() => setCategory("All")}
-              />
-              All
-            </label>
-
-            <label>
-              <input
-                type="radio"
-                checked={category === "Crystal"}
-                onChange={() => setCategory("Crystal")}
-              />
-              Crystal
-            </label>
-
-            <label>
-              <input
-                type="radio"
-                checked={category === "Modern"}
-                onChange={() => setCategory("Modern")}
-              />
-              Modern
-            </label>
-
-            <label>
-              <input
-                type="radio"
-                checked={category === "Classic"}
-                onChange={() => setCategory("Classic")}
-              />
-              Classic
-            </label>
-          </div>
-
-          <div className="filter-box">
             <h4>Price Range</h4>
 
             <input
@@ -195,7 +97,6 @@ Discover timeless decorative pieces designed to complete your living space.
             className="clear-btn"
             onClick={() => {
               setSearch("");
-              setCategory("All");
               setSort("default");
               setMinPrice("");
               setMaxPrice("");
@@ -225,14 +126,22 @@ Discover timeless decorative pieces designed to complete your living space.
 
   </div>
 
-  <div className="products-grid">
-    {filteredProducts.map((product) => (
-      <ProductCard
-        key={product.id}
-        product={product}
-      />
-    ))}
-  </div>
+  {loading ? (
+    <p style={{ padding: "20px" }}>Loading products...</p>
+  ) : error ? (
+    <p style={{ padding: "20px", color: "#c0392b" }}>{error}</p>
+  ) : filteredProducts.length === 0 ? (
+    <p style={{ padding: "20px" }}>No products found.</p>
+  ) : (
+    <div className="products-grid">
+      {filteredProducts.map((product) => (
+        <ProductCard
+          key={product.id}
+          product={product}
+        />
+      ))}
+    </div>
+  )}
 
 </div>
       </div>

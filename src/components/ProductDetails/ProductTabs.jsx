@@ -2,7 +2,7 @@ import "./ProductTabs.css";
 import { useState } from "react";
 import ReviewSection from "./ReviewSection";
 
-function ProductTabs() {
+function ProductTabs({ product }) {
 
   const [activeTab, setActiveTab] = useState("description");
 
@@ -42,23 +42,17 @@ function ProductTabs() {
           <div>
 
             <p>
-
-              Crafted from premium crystal and high-quality stainless steel,
-              this chandelier combines elegance with durability.
-
-            </p>
-
-            <p>
-
-              Perfect for living rooms, dining rooms, luxury villas,
-              hotels and modern interiors.
-
+              {product?.description ||
+                "No description available for this product yet."}
             </p>
 
           </div>
 
         )}
 
+        {/* The products API doesn't return structured spec fields
+            (material/dimensions/voltage/warranty), so this table stays
+            as general placeholder info until the backend adds them. */}
         {activeTab === "specifications" && (
 
           <table>
@@ -66,23 +60,8 @@ function ProductTabs() {
             <tbody>
 
               <tr>
-                <td>Material</td>
-                <td>Crystal</td>
-              </tr>
-
-              <tr>
-                <td>Height</td>
-                <td>80 cm</td>
-              </tr>
-
-              <tr>
-                <td>Width</td>
-                <td>65 cm</td>
-              </tr>
-
-              <tr>
-                <td>Voltage</td>
-                <td>220V</td>
+                <td>Category</td>
+                <td>{product?.category || "-"}</td>
               </tr>
 
               <tr>
@@ -98,7 +77,7 @@ function ProductTabs() {
 
         {activeTab === "reviews" && (
 
-          <ReviewSection />
+          <ReviewSection productId={product?.id} />
 
         )}
 
