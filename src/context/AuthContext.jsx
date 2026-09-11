@@ -1,21 +1,17 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // Check if user is already logged in
-  useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
+  const [user, setUser] = useState(() => {
+    try {
+      const savedUser = localStorage.getItem("user");
+      return savedUser ? JSON.parse(savedUser) : null;
+    } catch {
+      return null;
     }
-
-    setLoading(false);
-  }, []);
+  });
+  const [loading] = useState(false);
 
   // Login
   const loginUser = (userData) => {
@@ -23,10 +19,12 @@ export function AuthProvider({ children }) {
     setUser(userData);
   };
 
-  // Logout
+  // Logout (clears local state; call authService.logoutUser() first
+  // if you also want to invalidate the refresh token on the server)
   const logout = () => {
     localStorage.removeItem("user");
-    localStorage.removeItem("token");
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
 
     setUser(null);
   };
@@ -46,8 +44,4 @@ export function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
-
-export function useAuth() {
-  return useContext(AuthContext);
 }

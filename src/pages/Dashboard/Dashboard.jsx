@@ -75,6 +75,8 @@ function Dashboard() {
 
           <Route path="/add-product" element={<AddProduct />} />
 
+          <Route path="/edit-product/:id" element={<AddProduct />} />
+
           <Route path="/orders" element={<Orders />} />
 
           <Route path="/customers" element={<Customers />} />

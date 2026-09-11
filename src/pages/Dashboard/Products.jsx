@@ -1,8 +1,73 @@
 import "./Products.css";
 
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Plus, Search, Pencil, Trash2 } from "lucide-react";
 
+import { getAllProducts, deleteProduct } from "../../services/productService";
+
 function Products() {
+  const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [deletingId, setDeletingId] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadProducts = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const data = await getAllProducts();
+
+        if (isMounted) setProducts(data);
+      } catch (err) {
+        console.error("Get Products Error:", err);
+
+        if (isMounted) {
+          setError(
+            err.response?.data?.message || "Failed to load products."
+          );
+        }
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+
+    loadProducts();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Delete this product?")) return;
+
+    try {
+      setDeletingId(id);
+      await deleteProduct(id);
+
+      setProducts((prev) => prev.filter((p) => p.id !== id));
+    } catch (err) {
+      console.error("Delete Product Error:", err);
+
+      alert(
+        err.response?.data?.message || "Failed to delete product."
+      );
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
+  const filteredProducts = products.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="products-page">
 
@@ -13,10 +78,10 @@ function Products() {
           <p>Manage all products</p>
         </div>
 
-        <button className="add-product-btn">
+        <Link to="/dashboard/add-product" className="add-product-btn">
           <Plus size={18} />
           Add Product
-        </button>
+        </Link>
 
       </div>
 
@@ -29,6 +94,8 @@ function Products() {
           <input
             type="text"
             placeholder="Search Product..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
 
         </div>
@@ -37,101 +104,82 @@ function Products() {
 
       <div className="products-table">
 
-        <table>
+        {loading ? (
+          <p style={{ padding: "20px" }}>Loading products...</p>
+        ) : error ? (
+          <p style={{ padding: "20px", color: "#c0392b" }}>{error}</p>
+        ) : filteredProducts.length === 0 ? (
+          <p style={{ padding: "20px" }}>No products found.</p>
+        ) : (
+          <table>
 
-          <thead>
+            <thead>
 
-            <tr>
+              <tr>
 
-              <th>ID</th>
+                <th>ID</th>
 
-              <th>Image</th>
+                <th>Image</th>
 
-              <th>Name</th>
+                <th>Name</th>
 
-              <th>Category</th>
+                <th>Category</th>
 
-              <th>Price</th>
+                <th>Price</th>
 
-              <th>Stock</th>
+                <th>Rating</th>
 
-              <th>Actions</th>
+                <th>Actions</th>
 
-            </tr>
+              </tr>
 
-          </thead>
+            </thead>
 
-          <tbody>
+            <tbody>
 
-            <tr>
+              {filteredProducts.map((product) => (
+                <tr key={product.id}>
 
-              <td>#1</td>
+                  <td>#{product.id}</td>
 
-              <td>
-                <img
-                  src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=300"
-                  alt=""
-                />
-              </td>
+                  <td>
+                    <img src={product.image} alt={product.name} />
+                  </td>
 
-              <td>Royal Chandelier</td>
+                  <td>{product.name}</td>
 
-              <td>Chandeliers</td>
+                  <td>{product.category || "-"}</td>
 
-              <td>5200 EGP</td>
+                  <td>{product.price} EGP</td>
 
-              <td>12</td>
+                  <td>{product.averageRating || 0}</td>
 
-              <td>
+                  <td>
 
-                <button className="edit-btn">
-                  <Pencil size={18} />
-                </button>
+                    <Link
+                      to={`/dashboard/edit-product/${product.id}`}
+                      className="edit-btn"
+                    >
+                      <Pencil size={18} />
+                    </Link>
 
-                <button className="delete-btn">
-                  <Trash2 size={18} />
-                </button>
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDelete(product.id)}
+                      disabled={deletingId === product.id}
+                    >
+                      <Trash2 size={18} />
+                    </button>
 
-              </td>
+                  </td>
 
-            </tr>
+                </tr>
+              ))}
 
-            <tr>
+            </tbody>
 
-              <td>#2</td>
-
-              <td>
-                <img
-                  src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=300"
-                  alt=""
-                />
-              </td>
-
-              <td>Modern Light</td>
-
-              <td>Wall Lights</td>
-
-              <td>4300 EGP</td>
-
-              <td>20</td>
-
-              <td>
-
-                <button className="edit-btn">
-                  <Pencil size={18} />
-                </button>
-
-                <button className="delete-btn">
-                  <Trash2 size={18} />
-                </button>
-
-              </td>
-
-            </tr>
-
-          </tbody>
-
-        </table>
+          </table>
+        )}
 
       </div>
 
